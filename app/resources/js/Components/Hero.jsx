@@ -28,7 +28,7 @@ export default function Hero() {
                 </p>
                 <div className="mt-7 flex flex-wrap justify-center gap-3">
                     <a
-                        href="#paket"
+                        href="/harga"
                         className="inline-flex min-h-[48px] items-center rounded-md bg-orange-700 px-6 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
                     >
                         Lihat paket dan harga

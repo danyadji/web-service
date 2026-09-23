@@ -49,8 +49,13 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 ### Ilustrasi / Gambar
 - Tidak pakai ilustrasi stok generik. Visual = mockup UI abstrak + foto kontak jujur menyusul. Alasan: R-22.
 
+### Layanan bernomor (referensi averra.id)
+- Kolom kiri sticky: eyebrow uppercase spasi lebar + headline + deskripsi + link garis bawah "Bandingkan jenis layanan". Alasan tracking lebar: meminjam suara editorial referensi sebagai penanda section, dipakai sekali ini saja (R-06).
+- Kolom kanan: daftar 01-04, tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗. Alasan panah: tiap baris adalah link ke halaman perbandingan harga (R-08, R-26).
+- Background `stone-50` hangat. Alasan: jeda bertekstur antara hero biru dan konten putih, tetap netral (R-29).
 ### Card Paket Layanan
-- Border halus, radius sedang konsisten. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
+- Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
+- Kartu ke-5 "Custom" tampil beda: banner horizontal border putus-putus + CTA gelap "Diskusikan kebutuhan". Alasan: komposisi beda menandai aksi beda (konsultasi, bukan pilih harga), bukan sekadar kartu ke-5.
 
 ### Animasi & Motion
 - MOTION 2: hover states + satu marquee hero dengan tujuan tertulis (memberi kesan portofolio hidup). Tanpa loop lain dan tanpa scroll-reveal template.
@@ -58,17 +63,13 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 
 ## 6. Layout & Struktur Halaman
 
-Urutan homepage (adaptasi Stallion ke konten UMKM, tanpa section fabrikasi):
-1. Navbar (logo serif miring + menu ke section real + CTA "Konsultasi via WhatsApp")
-2. Hero (#atas)
-3. Tentang singkat (#tentang, tanpa angka statistik sampai ada data real)
-4. Banner highlight oranye (pernyataan pengalaman jujur, tanpa angka tahun palsu)
-5. Layanan akordeon: Landing Page, Company Profile, E-commerce (#layanan)
-6. Paket harga 3 kartu (tanpa highlight tengah) + CTA per paket ke form/WA
-7. Kenapa pilih kami, grid 6 kartu border (#kenapa)
-8. Portofolio: empty state jujur sampai ada 2-3 project (#portofolio)
-9. Pre-footer CTA playful (#mulai)
-10. Kontak: info + form (#kontak), footer dengan teks raksasa nama brand + bottom bar sederhana
+Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anchor scroll):
+
+- `/` Home: Hero + Layanan bernomor + Pricing 4 kartu + HighlightBanner + Portofolio preview (+ link /portofolio) + Pre-footer CTA
+- `/tentang`: About + HighlightBanner + Kenapa pilih kami
+- `/harga`: 4 kartu paket + akordeon rincian layanan + CTA ke `/kontak?paket=slug` (form terisi otomatis)
+- `/portofolio`: grid slot + empty state jujur
+- `/kontak`: info + form (prefill paket dari query, fallback WA ke halaman ini bila nomor belum diisi)
 
 ### Navbar
 - Pil melayang seperti referensi: bar `rounded-full` putih dengan bayangan halus, logo serif miring kiri, menu tengah, CTA pil gelap kanan. Sticky dengan jarak atas. Alasan: pil jadi motif identitas yang menggemakan kartu membulat di hero.

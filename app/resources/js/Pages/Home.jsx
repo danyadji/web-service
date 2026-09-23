@@ -1,29 +1,34 @@
-import { useState } from 'react';
 import Layout from '../Components/Layout';
 import Hero from '../Components/Hero';
-import About from '../Components/About';
-import HighlightBanner from '../Components/HighlightBanner';
-import ServiceAccordion from '../Components/ServiceAccordion';
+import ServicesList from '../Components/ServicesList';
 import Pricing from '../Components/Pricing';
-import WhyUs from '../Components/WhyUs';
+import HighlightBanner from '../Components/HighlightBanner';
 import Portfolio from '../Components/Portfolio';
 import PreFooterCTA from '../Components/PreFooterCTA';
-import ContactSection from '../Components/ContactSection';
 
-export default function Home() {
-    const [selectedService, setSelectedService] = useState(null);
+function PageLink({ href, children }) {
+    return (
+        <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
+            <a
+                href={href}
+                className="inline-flex min-h-[44px] items-center rounded-md border border-zinc-300 px-5 text-sm font-semibold text-zinc-950 hover:border-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+            >
+                {children}
+            </a>
+        </div>
+    );
+}
 
+export default function Home({ previewPortfolios = [] }) {
     return (
         <Layout>
             <Hero />
-            <About />
+            <ServicesList />
+            <Pricing />
             <HighlightBanner />
-            <ServiceAccordion />
-            <Pricing onChoose={setSelectedService} />
-            <WhyUs />
-            <Portfolio />
+            <Portfolio items={previewPortfolios} />
+            <PageLink href="/portofolio">Lihat semua portofolio</PageLink>
             <PreFooterCTA />
-            <ContactSection selectedService={selectedService} />
         </Layout>
     );
 }

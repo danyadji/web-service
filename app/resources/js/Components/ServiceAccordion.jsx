@@ -3,8 +3,9 @@ import SectionHeading from './SectionHeading';
 import { services } from '../data/site';
 
 export default function ServiceAccordion() {
-    const [active, setActive] = useState(services[0].slug);
-    const current = services.find((s) => s.slug === active);
+    const items = services.filter((s) => !s.isCustom);
+    const [active, setActive] = useState(items[0].slug);
+    const current = items.find((s) => s.slug === active);
 
     return (
         <section id="layanan" aria-labelledby="layanan-title" className="scroll-mt-20">
@@ -17,7 +18,7 @@ export default function ServiceAccordion() {
                 />
                 <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-start">
                     <div className="divide-y divide-zinc-200 rounded-xl border border-zinc-200 bg-white">
-                        {services.map((s) => {
+                        {items.map((s) => {
                             const open = s.slug === active;
                             return (
                                 <div key={s.slug}>

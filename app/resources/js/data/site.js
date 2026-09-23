@@ -5,31 +5,22 @@ export const siteConfig = {
     phone: '[08xx-xxxx-xxxx]',
     whatsappNumber: '',
     nav: [
-        { label: 'Tentang', href: '#tentang' },
-        { label: 'Layanan', href: '#layanan' },
-        { label: 'Paket', href: '#paket' },
-        { label: 'Portofolio', href: '#portofolio' },
-        { label: 'Kontak', href: '#kontak' },
+        { label: 'Home', href: '/', page: 'Home' },
+        { label: 'Tentang', href: '/tentang', page: 'Tentang' },
+        { label: 'Portofolio', href: '/portofolio', page: 'Portofolio' },
+        { label: 'Harga', href: '/harga', page: 'Harga' },
+        { label: 'Kontak', href: '/kontak', page: 'Kontak' },
     ],
 };
 
 export const services = [
     {
-        slug: 'landing-page',
-        name: 'Landing Page',
-        short: 'Satu halaman fokus untuk promosi dan kumpul leads.',
-        priceStart: null,
-        duration: '1-2 minggu',
-        features: [
-            'Satu halaman dengan struktur promosi yang jelas',
-            'Tombol WhatsApp dan formulir singkat',
-            'Dasar SEO dan kecepatan mobile',
-        ],
-    },
-    {
         slug: 'company-profile',
-        name: 'Company Profile',
+        name: 'Website Company Profile',
+        level: 'Essential · paling dipilih',
         short: 'Profil usaha untuk pasar luar kota dan ekspor.',
+        blurb:
+            'Jelaskan profil perusahaan, layanan, dan proyek agar calon klien dapat menilai bisnis Anda sebelum meminta penawaran.',
         priceStart: null,
         duration: '2-3 minggu',
         features: [
@@ -39,9 +30,27 @@ export const services = [
         ],
     },
     {
+        slug: 'landing-page',
+        name: 'Landing Page',
+        level: 'Basic · cukup untuk promosi',
+        short: 'Satu halaman fokus untuk promosi dan kumpul leads.',
+        blurb:
+            'Halaman untuk satu produk, layanan, atau kampanye iklan, dengan jalur menuju formulir atau WhatsApp.',
+        priceStart: null,
+        duration: '1-2 minggu',
+        features: [
+            'Satu halaman dengan struktur promosi yang jelas',
+            'Tombol WhatsApp dan formulir singkat',
+            'Dasar SEO dan kecepatan mobile',
+        ],
+    },
+    {
         slug: 'ecommerce',
         name: 'Toko Online',
+        level: 'Essential ke atas',
         short: 'Katalog, keranjang, dan checkout sederhana.',
+        blurb:
+            'Tampilkan katalog, detail produk, dan pilihan pembelian. Alur checkout dan pembayaran disesuaikan kebutuhan.',
         priceStart: null,
         duration: '3-4 minggu',
         features: [
@@ -49,6 +58,32 @@ export const services = [
             'Pembayaran QRIS dan transfer bank',
             'Pelatihan kelola produk dan pesanan',
         ],
+    },
+    {
+        slug: 'redesign-website',
+        name: 'Redesign Website',
+        level: 'Custom · harga diskusi',
+        short: 'Perbaiki website lama yang sudah ketinggalan.',
+        blurb:
+            'Perbaiki website yang sudah ada: susunan informasi, tampilan mobile, navigasi, dan alur menghubungi bisnis.',
+        priceStart: null,
+        duration: '2-4 minggu',
+        features: [
+            'Audit tampilan dan kecepatan website lama',
+            'Perbaikan struktur halaman dan navigasi',
+            'Migrasi konten tanpa menghilangkan SEO yang ada',
+        ],
+    },
+    {
+        slug: 'custom',
+        name: 'Custom',
+        short: 'Kebutuhan di luar 4 jenis di atas.',
+        blurb:
+            'Integrasi khusus, multibahasa, atau alur yang tidak biasa. Ceritakan, kami susun penawaran yang pas.',
+        priceStart: null,
+        duration: 'Sesuai lingkup',
+        isCustom: true,
+        features: [],
     },
 ];
 
@@ -80,7 +115,7 @@ export const whyUs = [
 ];
 
 export function waLink(number, text) {
-    if (!number) return '#kontak';
+    if (!number) return '/kontak';
     return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
 

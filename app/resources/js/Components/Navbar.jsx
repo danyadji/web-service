@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { usePage } from '@inertiajs/react';
 import { siteConfig, waLink } from '../data/site';
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const { component } = usePage();
     const waHref = waLink(
         siteConfig.whatsappNumber,
         'Halo, saya mau konsultasi pembuatan website.'
@@ -15,24 +17,32 @@ export default function Navbar() {
                 className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 rounded-full border border-zinc-200/70 bg-white/95 py-2 pl-6 pr-2 shadow-sm backdrop-blur-sm"
             >
                 <a
-                    href="#atas"
+                    href="/"
                     className="font-serif text-xl italic text-zinc-950"
-                    aria-label={`${siteConfig.brandName} ke atas halaman`}
+                    aria-label={`${siteConfig.brandName} ke halaman utama`}
                 >
                     {siteConfig.brandName}
                 </a>
 
                 <ul className="hidden items-center gap-1 lg:flex">
-                    {siteConfig.nav.map((item) => (
-                        <li key={item.href}>
-                            <a
-                                href={item.href}
-                                className="rounded-full px-4 py-2.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
-                            >
-                                {item.label}
-                            </a>
-                        </li>
-                    ))}
+                    {siteConfig.nav.map((item) => {
+                        const active = item.page === component;
+                        return (
+                            <li key={item.href}>
+                                <a
+                                    href={item.href}
+                                    aria-current={active ? 'page' : undefined}
+                                    className={`rounded-full px-4 py-2.5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 ${
+                                        active
+                                            ? 'bg-zinc-950 text-white'
+                                            : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
+                                    }`}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        );
+                    })}
                 </ul>
 
                 <div className="flex items-center gap-1">

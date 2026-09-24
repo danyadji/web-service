@@ -1,7 +1,7 @@
 import Layout from '../Components/Layout';
 import Hero from '../Components/Hero';
 import ServicesList from '../Components/ServicesList';
-import Pricing from '../Components/Pricing';
+import ServiceTierTabs from '../Components/ServiceTierTabs';
 import HighlightBanner from '../Components/HighlightBanner';
 import Portfolio from '../Components/Portfolio';
 import PreFooterCTA from '../Components/PreFooterCTA';
@@ -19,12 +19,12 @@ function PageLink({ href, children }) {
     );
 }
 
-export default function Home({ previewPortfolios = [] }) {
+export default function Home({ previewPortfolios = [], serviceTiers = [] }) {
     return (
         <Layout>
             <Hero />
             <ServicesList />
-            <Pricing />
+            <ServiceTierTabs items={serviceTiers} />
             <HighlightBanner />
             <Portfolio items={previewPortfolios} />
             <PageLink href="/portofolio">Lihat semua portofolio</PageLink>

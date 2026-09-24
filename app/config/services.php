@@ -28,6 +28,8 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 
+    'admin_whatsapp' => env('ADMIN_WHATSAPP', ''),
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

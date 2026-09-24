@@ -1,42 +1,93 @@
 import { useEffect, useState } from 'react';
-import { siteConfig, waLink } from '../data/site';
 
-export default function ContactForm({ selectedService }) {
+function xsrfToken() {
+    const match = document.cookie.match(/(?:^|; )XSRF-TOKEN=([^;]*)/);
+    return match ? decodeURIComponent(match[1]) : '';
+}
+
+export default function ContactForm({ selectedService, selectedTier = '' }) {
     const [state, setState] = useState('idle');
+    const [error, setError] = useState('');
+    const [waOpened, setWaOpened] = useState(false);
     const [values, setValues] = useState({ name: '', contact: '', message: '' });
 
     useEffect(() => {
         if (selectedService) {
-            setValues((v) => ({
-                ...v,
-                message: v.message.includes(selectedService.name)
-                    ? v.message
-                    : `Saya tertarik paket ${selectedService.name}. ${v.message}`.trim(),
-            }));
+            const interest = `Saya tertarik paket ${selectedService.name}${selectedTier ? ` tier ${selectedTier}` : ''}.`;
+            setValues((v) =>
+                v.message.includes(interest)
+                    ? v
+                    : { ...v, message: `${interest} ${v.message}`.trim() }
+            );
         }
-    }, [selectedService]);
+    }, [selectedService, selectedTier]);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         if (!values.name.trim() || !values.contact.trim() || !values.message.trim()) {
             setState('error');
+            setError('Lengkapi nama, kontak, dan kebutuhan dulu sebelum kirim.');
             return;
         }
-        // TODO: POST ke endpoint Laravel (validasi server + throttle), lalu buka wa.me
-        const link = waLink(
-            siteConfig.whatsappNumber,
-            `Halo, saya ${values.name} (${values.contact}). ${values.message}`
-        );
-        setState('success');
-        if (siteConfig.whatsappNumber) window.open(link, '_blank', 'noopener');
+        setState('sending');
+        setError('');
+
+        try {
+            const res = await fetch('/kontak', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-XSRF-TOKEN': xsrfToken(),
+                },
+                body: JSON.stringify({
+                    name: values.name.trim(),
+                    contact: values.contact.trim(),
+                    message: values.message.trim(),
+                    service: selectedService?.slug || null,
+                    tier: selectedTier || null,
+                }),
+            });
+
+            if (res.status === 422) {
+                const data = await res.json();
+                const first = Object.values(data.errors || {})[0];
+                setState('error');
+                setError(Array.isArray(first) ? first[0] : 'Periksa kembali isian form.');
+                return;
+            }
+            if (res.status === 429) {
+                setState('error');
+                setError('Terlalu sering mengirim. Tunggu sebentar lalu coba lagi.');
+                return;
+            }
+            if (!res.ok) throw new Error('submit failed');
+
+            const data = await res.json();
+            setState('success');
+            if (data.wa_url) {
+                setWaOpened(true);
+                window.open(data.wa_url, '_blank', 'noopener');
+            }
+        } catch {
+            setState('error');
+            setError('Gagal mengirim. Periksa koneksi lalu coba lagi.');
+        }
     }
 
     return (
         <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-4">
             {selectedService && (
                 <p className="rounded-md bg-orange-50 px-4 py-3 text-sm text-zinc-800">
-                    Paket dipilih: <strong>{selectedService.name}</strong>. Lengkapi form untuk
-                    lanjut konsultasi.
+                    Paket dipilih: <strong>{selectedService.name}</strong>
+                    {selectedTier && (
+                        <>
+                            {' '}tier <strong>{selectedTier}</strong>
+                        </>
+                    )}
+                    . Lengkapi form untuk lanjut konsultasi.
                 </p>
             )}
             <div className="grid gap-4 sm:grid-cols-2">
@@ -91,20 +142,23 @@ export default function ContactForm({ selectedService }) {
 
             {state === 'error' && (
                 <p role="alert" className="text-sm font-medium text-red-700">
-                    Lengkapi nama, kontak, dan kebutuhan dulu sebelum kirim.
+                    {error}
                 </p>
             )}
             {state === 'success' && (
                 <p role="status" className="text-sm font-medium text-green-800">
-                    Permintaan tercatat. Data akan tersimpan ke server setelah endpoint Laravel disambung.
+                    {waOpened
+                        ? 'Permintaan tersimpan. Lanjut ke WhatsApp untuk konsultasi langsung.'
+                        : 'Permintaan tersimpan. Kami hubungi maksimal 1 hari kerja.'}
                 </p>
             )}
 
             <button
                 type="submit"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-orange-700 px-6 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+                disabled={state === 'sending'}
+                className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-orange-700 px-6 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 disabled:opacity-60"
             >
-                Kirim permintaan konsultasi
+                {state === 'sending' ? 'Mengirim...' : 'Kirim permintaan konsultasi'}
             </button>
         </form>
     );

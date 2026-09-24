@@ -53,6 +53,12 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 - Kolom kiri sticky: eyebrow uppercase spasi lebar + headline + deskripsi + link garis bawah "Bandingkan jenis layanan". Alasan tracking lebar: meminjam suara editorial referensi sebagai penanda section, dipakai sekali ini saja (R-06).
 - Kolom kanan: daftar 01-04, tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗. Alasan panah: tiap baris adalah link ke halaman perbandingan harga (R-08, R-26).
 - Background `stone-50` hangat. Alasan: jeda bertekstur antara hero biru dan konten putih, tetap netral (R-29).
+### Card Tier per Kategori (referensi screenshot pricing)
+- Tab pil kategori di atas (satu aktif solid oranye, sisanya outline). Alasan: pola dari referensi, diterjemahkan ke oranye brand (bukan ungu, R-01).
+- 3 kartu tier: nama, harga Rp besar, checklist (ikon cek lingkaran oranye), estimasi, kotak bonus, tombol "Pesan Sekarang".
+- Tier `is_highlighted`: kartu solid oranye + teks putih + tombol putih. Alasan: satu momen penekanan, setara peran kartu ungu di referensi. Kontras putih di `#C2410C` 5.18:1, teks oranye di putih 5.18:1.
+- Tombol per tier ke `/kontak?paket=slug&tier=Nama`, form prefill "paket X tier Y" dan ikut ke pesan WA.
+
 ### Card Paket Layanan
 - Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
 - Kartu ke-5 "Custom" tampil beda: banner horizontal border putus-putus + CTA gelap "Diskusikan kebutuhan". Alasan: komposisi beda menandai aksi beda (konsultasi, bukan pilih harga), bukan sekadar kartu ke-5.
@@ -65,7 +71,8 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 
 Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anchor scroll):
 
-- `/` Home: Hero + Layanan bernomor + Pricing 4 kartu + HighlightBanner + Portofolio preview (+ link /portofolio) + Pre-footer CTA
+- `/` Home: Hero + Layanan bernomor + Tier per kategori (tab) + HighlightBanner + Portofolio preview (+ link /portofolio) + Pre-footer CTA
+- `/layanan`: tab kategori (Landing, Company, Toko, Redesign) + 3 kartu tier per tab + banner Custom + akordeon rincian. `/harga` redirect 301 ke `/layanan`.
 - `/tentang`: About + HighlightBanner + Kenapa pilih kami
 - `/harga`: 4 kartu paket + akordeon rincian layanan + CTA ke `/kontak?paket=slug` (form terisi otomatis)
 - `/portofolio`: grid slot + empty state jujur

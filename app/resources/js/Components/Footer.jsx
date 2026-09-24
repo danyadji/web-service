@@ -13,7 +13,7 @@ export default function Footer() {
                                 .map((s) => (
                                     <li key={s.slug}>
                                         <a
-                                            href="/harga"
+                                            href="/layanan"
                                             className="text-sm text-zinc-700 hover:text-zinc-950"
                                         >
                                             {s.name}

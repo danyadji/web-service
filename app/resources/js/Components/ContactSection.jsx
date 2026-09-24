@@ -2,7 +2,7 @@ import SectionHeading from './SectionHeading';
 import ContactForm from './ContactForm';
 import { siteConfig } from '../data/site';
 
-export default function ContactSection({ selectedService }) {
+export default function ContactSection({ selectedService, selectedTier = '' }) {
     return (
         <section id="kontak" aria-labelledby="kontak-title" className="scroll-mt-20 border-t border-zinc-200">
             <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.9fr_1.1fr]">
@@ -28,7 +28,7 @@ export default function ContactSection({ selectedService }) {
                     </p>
                 </div>
                 <div>
-                    <ContactForm selectedService={selectedService} />
+                    <ContactForm selectedService={selectedService} selectedTier={selectedTier} />
                 </div>
             </div>
         </section>

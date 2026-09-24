@@ -51,7 +51,7 @@ export default function ServicesList() {
                         lama. Lingkupnya dibahas sebelum pekerjaan dimulai.
                     </p>
                     <a
-                        href="/harga"
+                        href="/layanan"
                         className="mt-6 inline-flex min-h-[44px] items-center gap-2 border-b border-zinc-950 pb-1 text-sm font-semibold text-zinc-950 hover:gap-3 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
                     >
                         Bandingkan jenis layanan
@@ -65,8 +65,8 @@ export default function ServicesList() {
                         .map((s, i) => (
                         <li key={s.slug}>
                             <a
-                                href="/harga"
-                                aria-label={`${s.name}: bandingkan di halaman harga`}
+                                href="/layanan"
+                                aria-label={`${s.name}: bandingkan di halaman layanan`}
                                 className="group flex items-start gap-4 py-6 first:pt-0 last:pb-0 sm:gap-5 sm:py-7"
                             >
                                 <span

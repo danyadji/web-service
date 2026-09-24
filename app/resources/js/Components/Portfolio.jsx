@@ -1,50 +1,65 @@
 import SectionHeading from './SectionHeading';
 
-function PortfolioCard({ item }) {
+function excerpt(text, length = 90) {
+    if (!text) return '';
+    return text.length > length ? `${text.slice(0, length).trimEnd()}...` : text;
+}
+
+export function PortfolioCard({ item }) {
     return (
-        <article className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition-shadow hover:shadow-md">
-            {item.cover_url ? (
-                <img
-                    src={item.cover_url}
-                    alt={item.alt_text || item.title}
-                    loading="lazy"
-                    className="aspect-video w-full object-cover"
-                />
-            ) : (
-                <div className="aspect-video w-full bg-zinc-100" aria-hidden="true" />
-            )}
-            <div className="p-6">
-                <div className="flex flex-wrap items-center gap-2 text-xs">
-                    {item.service && (
-                        <span className="font-semibold uppercase tracking-wide text-orange-800">
+        <article className="flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-shadow hover:shadow-md">
+            <div className="relative">
+                {item.cover_url ? (
+                    <img
+                        src={item.cover_url}
+                        alt={item.alt_text || item.title}
+                        loading="lazy"
+                        className="aspect-[4/3] w-full object-cover"
+                    />
+                ) : (
+                    <div className="aspect-[4/3] w-full bg-zinc-100" aria-hidden="true" />
+                )}
+                <div className="absolute inset-x-3 top-3 flex items-start justify-between gap-2">
+                    {item.service ? (
+                        <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-orange-800 shadow-sm">
                             {item.service}
                         </span>
+                    ) : (
+                        <span />
                     )}
-                    {item.demo_url && (
-                        <a
-                            href={item.demo_url}
-                            target="_blank"
-                            rel="noopener"
-                            className="font-medium text-zinc-600 underline underline-offset-2 hover:text-zinc-950"
-                        >
-                            Lihat demo
-                        </a>
+                    {item.year && (
+                        <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm">
+                            {item.year}
+                        </span>
                     )}
                 </div>
-                <h3 className="mt-2 text-lg font-semibold text-zinc-950">{item.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-zinc-700">{item.description}</p>
+            </div>
+            <div className="flex flex-1 flex-col p-5">
+                <h3 className="text-lg font-semibold tracking-tight text-zinc-950">
+                    {item.title}
+                </h3>
+                <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-600">
+                    {excerpt(item.description)}
+                </p>
                 {item.technologies.length > 0 && (
                     <ul aria-label="Teknologi yang dipakai" className="mt-3 flex flex-wrap gap-1.5">
                         {item.technologies.map((t) => (
                             <li
                                 key={t}
-                                className="rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700"
+                                className="rounded-full bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-800"
                             >
                                 {t}
                             </li>
                         ))}
                     </ul>
                 )}
+                <a
+                    href={`/portofolio/${item.slug}`}
+                    className="mt-4 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-zinc-300 text-sm font-semibold text-zinc-950 hover:border-zinc-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                >
+                    Lihat Detail
+                    <span aria-hidden="true">→</span>
+                </a>
             </div>
         </article>
     );
@@ -62,12 +77,12 @@ export default function Portfolio({ items = [] }) {
                     eyebrow="Portofolio"
                     titleId="portofolio-title"
                     title="Hasil kerja yang sudah tayang"
-                    description="Project asli yang dikelola dari admin. Tiap project tampil dengan deskripsi unik untuk SEO."
+                    description="Project asli yang dikelola dari admin. Buka detail untuk galeri dan penjelasan tiap project."
                 />
                 {items.length > 0 ? (
-                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         {items.map((item) => (
-                            <PortfolioCard key={item.title} item={item} />
+                            <PortfolioCard key={item.slug} item={item} />
                         ))}
                     </div>
                 ) : (

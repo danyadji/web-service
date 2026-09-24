@@ -1,4 +1,4 @@
-import { siteConfig, services, waLink } from '../data/site';
+import { siteConfig, services } from '../data/site';
 
 export default function Footer() {
     return (
@@ -54,15 +54,6 @@ export default function Footer() {
                             <li>{siteConfig.phone}</li>
                             <li>Balasan maksimal 1 hari kerja.</li>
                         </ul>
-                        <a
-                            href={waLink(
-                                siteConfig.whatsappNumber,
-                                'Halo, saya mau konsultasi pembuatan website.'
-                            )}
-                            className="mt-4 inline-flex min-h-[44px] items-center rounded-md bg-orange-700 px-5 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
-                        >
-                            Konsultasi via WhatsApp
-                        </a>
                     </div>
                 </div>
 

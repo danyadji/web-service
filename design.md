@@ -59,6 +59,9 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 - Tier `is_highlighted`: kartu solid oranye + teks putih + tombol putih. Alasan: satu momen penekanan, setara peran kartu ungu di referensi. Kontras putih di `#C2410C` 5.18:1, teks oranye di putih 5.18:1.
 - Tombol per tier ke `/kontak?paket=slug&tier=Nama`, form prefill "paket X tier Y" dan ikut ke pesan WA.
 
+### Kartu Portofolio (referensi screenshot)
+- Kartu putih rounded: sampul + pil tipe (putih, teks oranye) + pil tahun di atas gambar, judul, kutipan deskripsi 90 karakter, pil teknologi oranye muda, tombol outline "Lihat Detail →" full-width. Alasan panah: semua tombol kartu berarti "buka halaman detail" (R-08).
+- Halaman detail `/portofolio/{slug}`: breadcrumb, cover besar, meta (tipe, tahun, klien), deskripsi penuh, badge teknologi, galeri grid, aside CTA konsultasi, 2 project lain. Meta title/description per project untuk SEO.
 ### Card Paket Layanan
 - Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
 - Kartu ke-5 "Custom" tampil beda: banner horizontal border putus-putus + CTA gelap "Diskusikan kebutuhan". Alasan: komposisi beda menandai aksi beda (konsultasi, bukan pilih harga), bukan sekadar kartu ke-5.
@@ -94,6 +97,7 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 ## 7. Nada & Bahasa
 
 - Semi-formal hangat Indonesia: "Kami bantu...", "Ceritakan kebutuhan...". Tanpa em dash, tanpa buzzword (tanpa seamless, revolusioner, cutting edge).
+- Pengecualian: section Kebijakan Revisi & Garansi memakai nada bold/menantang ("Berani buka-bukaan...", "Revisi tanpa drama"). Alasan: ketegasan adalah isi pesannya; nada lembek justru melemahkan kepercayaan pada aturan main.
 - CTA spesifik per aksi, bukan generik: "Mulai project landing page", "Konsultasi via WhatsApp", "Kirim permintaan konsultasi", "Jadwalkan panggilan gratis".
 
 ## 8. Konten yang Sudah Disiapkan

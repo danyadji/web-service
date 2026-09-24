@@ -60,24 +60,9 @@ export const services = [
         ],
     },
     {
-        slug: 'redesign-website',
-        name: 'Redesign Website',
-        level: 'Custom · harga diskusi',
-        short: 'Perbaiki website lama yang sudah ketinggalan.',
-        blurb:
-            'Perbaiki website yang sudah ada: susunan informasi, tampilan mobile, navigasi, dan alur menghubungi bisnis.',
-        priceStart: null,
-        duration: '2-4 minggu',
-        features: [
-            'Audit tampilan dan kecepatan website lama',
-            'Perbaikan struktur halaman dan navigasi',
-            'Migrasi konten tanpa menghilangkan SEO yang ada',
-        ],
-    },
-    {
         slug: 'custom',
         name: 'Custom',
-        short: 'Kebutuhan di luar 4 jenis di atas.',
+        short: 'Kebutuhan di luar 3 jenis di atas.',
         blurb:
             'Integrasi khusus, multibahasa, atau alur yang tidak biasa. Ceritakan, kami susun penawaran yang pas.',
         priceStart: null,

@@ -187,7 +187,7 @@ class ServiceSeeder extends Seeder
                 'slug' => 'redesign-website',
                 'description' => 'Perbaiki website lama yang sudah ketinggalan.',
                 'duration_estimate' => '2-4 minggu',
-                'is_active' => true,
+                'is_active' => false,
                 'sort_order' => 3,
                 'packages' => [
                     [

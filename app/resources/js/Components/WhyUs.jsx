@@ -1,7 +1,7 @@
 import SectionHeading from './SectionHeading';
 import { whyUs } from '../data/site';
 
-export default function WhyUs() {
+export default function WhyUs({ limit = whyUs.length }) {
     return (
         <section id="kenapa" aria-labelledby="kenapa-title" className="scroll-mt-20 border-t border-zinc-200 bg-zinc-50">
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
@@ -12,7 +12,7 @@ export default function WhyUs() {
                     title="Cara kerja yang tenang untuk pemilik usaha"
                 />
                 <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {whyUs.map((item) => (
+                    {whyUs.slice(0, limit).map((item) => (
                         <article
                             key={item.title}
                             className="rounded-xl border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-md"

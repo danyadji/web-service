@@ -20,14 +20,6 @@ const icons = {
             strokeLinejoin="round"
         />
     ),
-    'redesign-website': (
-        <path
-            d="M19 12a7 7 0 0 1-12.2 4.7M5 12a7 7 0 0 1 12.2-4.7M18.5 3v4h-4M5.5 21v-4h4"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        />
-    ),
 };
 
 export default function ServicesList() {

@@ -16,7 +16,7 @@ const faqs = [
     },
     {
         q: 'Website lama bisa diperbaiki?',
-        a: 'Bisa, lewat layanan Redesign Website: dari facelift cepat sampai rebuild total. Audit dulu, baru kami sarankan tier yang pas.',
+        a: 'Bisa, lewat paket Custom. Kami audit dulu, lalu sarankan scope yang paling pas.',
     },
     {
         q: 'Harus ketemu langsung?',

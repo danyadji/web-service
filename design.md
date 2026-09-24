@@ -81,7 +81,7 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 
 - `/` Home: Hero + Layanan bernomor + Tier per kategori (tab) + Cara kerja + HighlightBanner + Strip garansi + Portofolio preview (+ link /portofolio) + FAQ + Pre-footer CTA
 - `/layanan`: tab kategori (Landing, Company, Toko, Redesign) + 3 kartu tier per tab + banner Custom + akordeon rincian. `/harga` redirect 301 ke `/layanan`.
-- `/tentang`: About + HighlightBanner + Kenapa pilih kami
+- `/tentang`: About singkat + Kenapa pilih kami (3)
 - `/harga`: 4 kartu paket + akordeon rincian layanan + CTA ke `/kontak?paket=slug` (form terisi otomatis)
 - `/portofolio`: grid slot + empty state jujur
 - `/kontak`: info + form (prefill paket dari query, fallback WA ke halaman ini bila nomor belum diisi)
@@ -91,7 +91,7 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 - Mobile: tombol "Menu" berlabel di dalam pil + panel dropdown membulat di bawahnya.
 
 ### Footer
-- Lengkap tapi ramping: info kontak, tautan section real, teks raksasa brand, bottom bar copyright + kebijakan (placeholder jujur "segera hadir" bila belum ada halaman).
+- Gelap (`zinc-950`) sebagai penutup halaman. Alasan: kontras penutup setelah konten putih panjang, teks zinc-400 di atasnya tetap lolos AA. Lengkap tapi ramping: 3 kolom link real + bottom bar copyright dan kebijakan ("segera hadir" bila belum ada halaman).
 
 ### Yang SENGAJA dihilangkan dari referensi (aturan antislop)
 - Logo bar klien: tidak ada logo klien real, jadi tidak ditampilkan (R-18, R-38).

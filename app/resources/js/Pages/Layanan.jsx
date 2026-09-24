@@ -1,10 +1,15 @@
 import Layout from '../Components/Layout';
+import Seo from '../Components/Seo';
 import ServiceTierTabs from '../Components/ServiceTierTabs';
 import PolicySection from '../Components/PolicySection';
 
 export default function Layanan({ serviceTiers = [] }) {
     return (
         <Layout>
+            <Seo
+                title="Layanan dan Harga"
+                description="Tier Basic, Essential, dan Custom untuk landing page, company profile, dan toko online. Revisi dan garansi tertulis."
+            />
             <ServiceTierTabs items={serviceTiers} />
             <PolicySection />
             <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">

@@ -71,6 +71,12 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 - Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
 - Kartu ke-5 "Custom" tampil beda: banner horizontal border putus-putus + CTA gelap "Diskusikan kebutuhan". Alasan: komposisi beda menandai aksi beda (konsultasi, bukan pilih harga), bukan sekadar kartu ke-5.
 
+### SEO teknis
+- `sitemap.xml` otomatis (6 halaman + tiap portofolio/blog published, refresh sendiri saat publish via model hook, cache 24 jam) via `spatie/laravel-sitemap`. `robots.txt` membuka semua kecuali `/admin` + menunjuk sitemap.
+- SSR aktif: `resources/js/ssr.jsx` + `vite build --ssr` + `php artisan inertia:start-ssr` (jalan sebagai proses Node terpisah, di production via Supervisor). Tanpa proses itu halaman fallback ke client render. Aturan: komponen tidak boleh menyentuh `window`/`document` saat render.
+- Blog: Model + CRUD Filament + `/blog` + `/blog/{slug}` + CTA kontak di tiap artikel. Artikel pertama belum ditulis.
+- Meta + OG per halaman via komponen `Seo.jsx` (title, description, og:title, og:description, og:image bila ada sampul). `og:image` default menunggu 1 gambar brand 1200x630.
+- Catatan jujur: tanpa SSR, meta per halaman terpasang setelah JS jalan. Google merender JS jadi tetap terbaca, tapi View Source tidak menampilkannya.
 ### Animasi & Motion
 - MOTION 2: hover states + satu marquee hero dengan tujuan tertulis (memberi kesan portofolio hidup). Tanpa loop lain dan tanpa scroll-reveal template.
 - Batas: marquee satu-satunya animasi berjalan; durasi 45 detik per putaran supaya tenang; pause saat hover; hormati `prefers-reduced-motion`.

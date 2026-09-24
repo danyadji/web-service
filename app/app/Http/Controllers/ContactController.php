@@ -14,17 +14,20 @@ class ContactController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:100'],
             'contact' => ['required', 'string', 'max:100'],
+            'city' => ['nullable', 'string', 'max:100'],
             'message' => ['required', 'string', 'max:2000'],
             'service' => ['nullable', 'string', 'max:50'],
             'tier' => ['nullable', 'string', 'max:50'],
         ], [], [
             'name' => 'nama',
             'contact' => 'kontak',
+            'city' => 'kota',
             'message' => 'kebutuhan',
         ]);
 
         $name = strip_tags($validated['name']);
         $contact = strip_tags($validated['contact']);
+        $city = isset($validated['city']) ? strip_tags($validated['city']) : null;
         $message = strip_tags($validated['message']);
 
         $serviceName = null;
@@ -42,6 +45,7 @@ class ContactController extends Controller
         Lead::create([
             'name' => $name,
             'contact' => $contact,
+            'city' => $city ?: null,
             'service_interested' => $interested,
             'message' => $message,
             'wa_message_sent' => $waText,

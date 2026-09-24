@@ -8,6 +8,7 @@ export const siteConfig = {
         { label: 'Home', href: '/', page: 'Home' },
         { label: 'Tentang', href: '/tentang', page: 'Tentang' },
         { label: 'Portofolio', href: '/portofolio', page: 'Portofolio' },
+        { label: 'Blog', href: '/blog', page: 'Blog' },
         { label: 'Layanan', href: '/layanan', page: 'Layanan' },
         { label: 'Kontak', href: '/kontak', page: 'Kontak' },
     ],

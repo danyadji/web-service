@@ -1,5 +1,5 @@
-import { Head } from '@inertiajs/react';
 import Layout from '../Components/Layout';
+import Seo from '../Components/Seo';
 import SectionHeading from '../Components/SectionHeading';
 import { PortfolioCard } from '../Components/Portfolio';
 
@@ -8,10 +8,11 @@ export default function PortfolioDetail({ item, others = [] }) {
 
     return (
         <Layout>
-            <Head>
-                <title>{item.title}</title>
-                <meta name="description" content={item.description.slice(0, 160)} />
-            </Head>
+            <Seo
+                title={item.title}
+                description={item.description.slice(0, 160)}
+                image={item.cover_absolute}
+            />
 
             <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <a

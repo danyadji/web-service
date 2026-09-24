@@ -9,7 +9,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
     const [state, setState] = useState('idle');
     const [error, setError] = useState('');
     const [waOpened, setWaOpened] = useState(false);
-    const [values, setValues] = useState({ name: '', contact: '', message: '' });
+    const [values, setValues] = useState({ name: '', contact: '', city: '', message: '' });
 
     useEffect(() => {
         if (selectedService) {
@@ -45,6 +45,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                 body: JSON.stringify({
                     name: values.name.trim(),
                     contact: values.contact.trim(),
+                    city: values.city.trim() || null,
                     message: values.message.trim(),
                     service: selectedService?.slug || null,
                     tier: selectedTier || null,
@@ -123,6 +124,21 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                         className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
                     />
                 </div>
+            </div>
+            <div>
+                <label htmlFor="kota" className="block text-sm font-medium text-zinc-950">
+                    Kota <span className="font-normal text-zinc-500">(opsional)</span>
+                </label>
+                <input
+                    id="kota"
+                    name="kota"
+                    type="text"
+                    autoComplete="address-level2"
+                    value={values.city}
+                    onChange={(e) => setValues({ ...values, city: e.target.value })}
+                    placeholder="Misal: Jepara"
+                    className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
+                />
             </div>
             <div>
                 <label htmlFor="pesan" className="block text-sm font-medium text-zinc-950">

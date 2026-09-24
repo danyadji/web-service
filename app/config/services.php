@@ -30,6 +30,10 @@ return [
 
     'admin_whatsapp' => env('ADMIN_WHATSAPP', ''),
 
+    'ga_id' => env('GA_MEASUREMENT_ID', ''),
+    'gsc_verification' => env('GSC_VERIFICATION', ''),
+    'clarity_id' => env('CLARITY_ID', ''),
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

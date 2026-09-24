@@ -1,4 +1,5 @@
 import Layout from '../Components/Layout';
+import Seo from '../Components/Seo';
 import Hero from '../Components/Hero';
 import ServicesList from '../Components/ServicesList';
 import ServiceTierTabs from '../Components/ServiceTierTabs';
@@ -24,6 +25,10 @@ function PageLink({ href, children }) {
 export default function Home({ previewPortfolios = [], serviceTiers = [] }) {
     return (
         <Layout>
+            <Seo
+                title="Jasa Pembuatan Website UMKM"
+                description="Landing page, profil usaha, dan toko online untuk UMKM. Proses full remote, harga jelas, garansi tertulis."
+            />
             <Hero />
             <ServicesList />
             <ServiceTierTabs items={serviceTiers} />

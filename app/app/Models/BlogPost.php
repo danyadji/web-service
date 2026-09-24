@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Cache;
 
-class Portfolio extends Model
+class BlogPost extends Model
 {
     use SoftDeletes;
 
@@ -18,32 +18,25 @@ class Portfolio extends Model
     }
 
     protected $fillable = [
-        'service_id',
         'title',
         'slug',
-        'client_name',
-        'description',
+        'excerpt',
+        'content',
         'cover_image',
-        'gallery_images',
-        'technologies',
-        'alt_text',
-        'demo_url',
         'meta_title',
         'meta_description',
         'is_published',
         'published_at',
-        'sort_order',
+        'author_id',
     ];
 
     protected $casts = [
-        'gallery_images' => 'array',
-        'technologies' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
 
-    public function service(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 }

@@ -79,9 +79,9 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-4">
+        <form onSubmit={handleSubmit} className="max-w-xl space-y-4">
             {selectedService && (
-                <p className="rounded-md bg-orange-50 px-4 py-3 text-sm text-zinc-800">
+                <p className="rounded-md bg-brand-pinelight px-4 py-3 text-sm text-zinc-800">
                     Paket dipilih: <strong>{selectedService.name}</strong>
                     {selectedTier && (
                         <>
@@ -105,7 +105,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                         value={values.name}
                         onChange={(e) => setValues({ ...values, name: e.target.value })}
                         placeholder="Nama Anda"
-                        className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
+                        className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-brand-pine focus:outline-none"
                     />
                 </div>
                 <div>
@@ -121,7 +121,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                         value={values.contact}
                         onChange={(e) => setValues({ ...values, contact: e.target.value })}
                         placeholder="08xx atau email@example.com"
-                        className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
+                        className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-brand-pine focus:outline-none"
                     />
                 </div>
             </div>
@@ -137,7 +137,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                     value={values.city}
                     onChange={(e) => setValues({ ...values, city: e.target.value })}
                     placeholder="Misal: Jepara"
-                    className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
+                    className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-brand-pine focus:outline-none"
                 />
             </div>
             <div>
@@ -152,7 +152,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
                     value={values.message}
                     onChange={(e) => setValues({ ...values, message: e.target.value })}
                     placeholder="Jenis usaha, produk, dan website yang diinginkan"
-                    className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-orange-700 focus:outline-none"
+                    className="mt-1 block w-full rounded-md border border-zinc-300 px-3 py-3 text-sm text-zinc-950 placeholder:text-zinc-500 focus:border-brand-pine focus:outline-none"
                 />
             </div>
 
@@ -172,7 +172,7 @@ export default function ContactForm({ selectedService, selectedTier = '' }) {
             <button
                 type="submit"
                 disabled={state === 'sending'}
-                className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-orange-700 px-6 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 disabled:opacity-60"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-brand-lime px-6 text-sm font-semibold text-brand-pine hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine disabled:opacity-60"
             >
                 {state === 'sending' ? 'Mengirim...' : 'Kirim permintaan konsultasi'}
             </button>

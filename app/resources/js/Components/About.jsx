@@ -1,16 +1,25 @@
-import SectionHeading from './SectionHeading';
-
 export default function About() {
     return (
-        <section id="tentang" aria-labelledby="tentang-title" className="scroll-mt-20">
-            <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-                <SectionHeading
-                    eyebrow="Tentang"
-                    titleId="tentang-title"
-                    title="Teman bangun website untuk usaha kecil"
-                    description="Kami merancang dan membangun website untuk warung, bengkel, butik, kedai, dan produsen lokal. Fokusnya satu: pengunjung paham usaha Anda dan mudah menghubungi."
-                />
-                <div className="mt-6 grid gap-6 text-sm leading-relaxed text-zinc-700 md:grid-cols-2">
+        <section id="tentang" aria-labelledby="tentang-title" className="scroll-mt-20 overflow-hidden">
+            <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+                <div>
+                    <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600">
+                        <span aria-hidden="true" className="inline-block h-px w-8 bg-brand-pine" />
+                        Tentang
+                    </p>
+                    <h2
+                        id="tentang-title"
+                        className="mt-4 font-display text-4xl uppercase leading-[1.02] tracking-wide text-zinc-950 sm:text-5xl"
+                    >
+                        Teman bangun website untuk usaha kecil
+                    </h2>
+                    <p className="mt-4 max-w-md border-l-2 border-brand-lime bg-brand-pinelight/40 py-1 pl-4 text-base leading-relaxed text-zinc-800">
+                        Kami merancang dan membangun website untuk warung, bengkel, butik,
+                        kedai, dan produsen lokal. Fokusnya satu: pengunjung paham usaha
+                        Anda dan mudah menghubungi.
+                    </p>
+                </div>
+                <div className="space-y-4 self-end text-sm leading-relaxed text-zinc-700 lg:pb-2">
                     <p>
                         Setiap project mulai dari percakapan singkat tentang produk, pembeli,
                         dan cara order yang paling nyaman. Dari situ kami susun halaman yang

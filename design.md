@@ -1,48 +1,58 @@
 # Design Spec — Web Jasa Pembuatan Website UMKM
 
-Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadaptasi ke konteks jasa website UMKM Indonesia. Bukan clone: struktur dan gaya dipinjam, konten dan klaim dibuat jujur untuk UMKM.
+Referensi visual: Stallion Landing Page + MoneyHub Landing Page (screenshot user, redesign). Diadaptasi ke konteks jasa website UMKM Indonesia. Bukan clone: komposisi warna, tipografi, dan bahasa komponen dipinjam; struktur section dan konten tetap milik web ini.
 
 ---
 
 ## 1. Mood & Gaya Visual
 
-- Modern minimalis + Hangat dan personal. Putih dominan, banyak whitespace, kesan premium tapi ramah untuk pemilik UMKM.
-- Sentuhan vibrant di momen kunci: banner highlight oranye penuh + pre-footer playful.
-- Dial: ENERGY 2 / RHYTHM 3 / MOTION 2. Design Read: landing jasa website untuk pemilik UMKM Indonesia, bahasa visual agensi modern yang hangat, dial ENERGY 2 / RHYTHM 3 / MOTION 2.
+- Bold & percaya diri + Hangat: hero dan footer gelap premium, body putih lapang, aksen lime playful di momen aksi. Kesan "agensi berani" seperti MoneyHub, bahasanya tetap ramah UMKM.
+- Tidak ada section/kartu baru: struktur halaman yang sudah dibangun tidak berubah, yang diganti hanya warna, font, dan styling komponen.
+- Dial: ENERGY 3 / RHYTHM 3 / MOTION 2. Design Read: landing jasa website untuk pemilik UMKM Indonesia, bahasa visual fintech-bold yang percaya diri, dial ENERGY 3 / RHYTHM 3 / MOTION 2.
 
 ## 2. Palet Warna
 
 ### Warna Utama (Primary)
-- CTA dan aksen: `#C2410C` (orange-700) untuk teks putih di atasnya, rasio 5.18:1, lolos AA. Alasan: oranye Stallion sebagai momen aksi, digelapkan dari `#EA580C` (yang gagal AA 3.56:1) supaya tombol kecil tetap terbaca.
-- Oranye terang `#F97316` hanya dekorasi (ikon, titik label, gradient banner), bukan background teks kecil.
+- CTA dan aksen: lime `#CDF138` dengan teks gelap `#0B1F17` di atasnya, rasio 13.28:1, lolos AA (hasil cek script). Alasan: meminjam tombol lime MoneyHub sebagai momen aksi.
+- ATURAN KERAS: tidak ada teks putih di atas lime (rasio 1.29:1, gagal AA). Lime selalu pasangan teks gelap.
 
 ### Warna Sekunder / Pendukung
-- Wash biru pastel `#E0F2FE` ke putih di hero saja. Alasan: memberi udara lapang di pembuka, tidak dipakai di section lain supaya aksen tetap satu.
+- Dark green `#0B1F17` untuk hero, kartu gelap, dan footer. Teks putih di atasnya rasio 17.18:1, lolos AA. Alasan: panggung premium untuk headline dan momen penekanan, seperti hero MoneyHub.
+- Oranye `#C2410C` pensiun dari peran CTA, boleh bertahan maksimal sebagai aksen mikro bila dibutuhkan saat implementasi (dengan alasan tertulis per titik).
 
 ### Background
-- Utama: `#FFFFFF` (putih).
-- Selang: `#F9FAFB` (abu sangat muda) untuk section portofolio/kontak. Banner highlight: gradient oranye `#FB923C` ke `#EA580C` dengan teks putih besar (teks besar lolos 3:1).
+- Utama: `#FFFFFF` (putih) untuk body section.
+- Selang: `#F9FAFB` dan `stone-50` hangat yang sudah ada. Hero dan section tier: dark green penuh. Banner highlight gradient pensiun (perannya diganti strip garansi).
 
 ### Teks
-- Utama: `#18181B` (zinc-950) di atas putih, rasio 17.72:1.
-- Sekunder: `#3F3F46` (zinc-700, bukan abu muda) supaya paragraf tetap lolos AA.
+- Di atas putih: `#18181B` utama, `#3F3F46` sekunder (tetap).
+- Di atas dark green: putih utama, lime `#CDF138` untuk penekan kecil/label (13.28:1, lolos AA).
 
 ## 3. Tipografi
 
-- Heading: `Plus Jakarta Sans` (600-700, tracking tight). Alasan: sans modern yang ramah Indonesia, tegas untuk headline jasa.
-- Aksen artistik: `Playfair Display` italic untuk 1-2 kata penekan per headline (contoh: "naik kelas"). Alasan: meminjam gestur serif italic Stallion sebagai motif identitas.
-- Body: `Plus Jakarta Sans` 400-500. Satu keluarga untuk heading dan body supaya hemat dan konsisten.
+- Heading: `Anton` (uppercase, tight, satu weight). Alasan: meniru headline condensed tebal MoneyHub ("BEST SOLUTION...") sebagai suara berani; menggantikan Plus Jakarta Sans di heading.
+- Aksen artistik lama (`Playfair Display` italic) PENSIUN. Motif identitas baru: uppercase condensed + aksen lime. Alasan: serif italic bertabrakan dengan suara bold referensi baru (R-20, satu identitas).
+- Body: `Plus Jakarta Sans` 400-500 (tetap, terbaca untuk paragraf panjang).
+- Logo wordmark: sans tebal rapat (tanpa serif miring), mengikuti logo MoneyHub.
 - Semua dari Google Fonts.
 
 ## 4. Referensi Website
 
-1. Stallion Landing Page (screenshot user) — alasan: ritme section bervariasi, hero lapang dengan mockup floating, banner oranye dramatis, kartu layanan berborder halus. Dipinjam polanya, bukan mereknya.
+1. Stallion Landing Page (screenshot user) — alasan: ritme section bervariasi, hero lapang dengan mockup floating, kartu layanan berborder halus. Dipinjam polanya, bukan mereknya.
+2. MoneyHub Landing Page (screenshot user, arah redesign) — alasan: komposisi dark green + lime, headline condensed uppercase, tombol pil, kartu gelap dengan aksen lime. Dipinjam warna, font, dan bahasa komponennya; struktur section dan konten tetap milik web ini.
 
 ## 5. Komponen & Elemen Visual
 
+### Bahasa komponen (MoneyHub, berlaku global)
+- Tombol CTA: pil penuh (`rounded-full`), lime dengan teks gelap. Tombol sekunder: pil putih/outline. Alasan: pil adalah gestur paling berulang di referensi (R-31).
+- Kartu gelap: background dark green, teks putih, angka/ikon lime. Kartu terang: putih dengan aksen dark green + lime.
+- Pil/badge kecil: `rounded-full`; label di atas gambar tetap pil putih agar terbaca di semua foto.
+- Titik penanda section (dulu oranye): dark green di atas terang, lime di atas gelap. Alasan: lime di atas putih gagal kontras sebagai indikator.
+
 ### Hero
-- Teks tengah (headline, sub, CTA) seperti referensi, lalu strip showcase full-bleed di bawahnya. Background wash gradient biru pastel halus.
-- Badge: tanpa pill + dot (hindari badge AI). Diganti baris teks kecil dengan ikon relevan + klaim jujur.
+- Teks tengah (headline condensed UPPERCASE, sub, CTA pil) seperti referensi, lalu strip showcase full-bleed di bawahnya. Background dark green penuh dengan teks putih. Section selayar (`min-h-svh`, konten vertikal tengah).
+- Showcase: mockup browser (dengan url bar + sidebar mini) dan HP yang dimiringkan, bayangan kuat, seperti kartu floating referensi. Dibuat dari div (bukan screenshot palsu), tiap kartu berlabel tipe layout ("Contoh: Toko Online"). Alasan: belum ada portofolio real (R-38).
+- Badge: tanpa pill + dot (hindari badge AI). Diganti baris teks kecil dengan ikon relevan + klaim jujur (teks putih/lime di atas dark).
 - Showcase: marquee bingkai browser/HP abstrak dari div (bukan screenshot palsu), tiap kartu berlabel tipe layout ("Contoh: Toko Online"). Alasan: belum ada portofolio real (R-38).
 - Marquee berhenti saat hover (R-19, tujuan: pengguna sempat membaca tiap kartu) dan nonaktif total saat `prefers-reduced-motion` (ganti scroll horizontal manual).
 
@@ -51,21 +61,25 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 
 ### Layanan bernomor (referensi averra.id)
 - Kolom kiri sticky: eyebrow uppercase spasi lebar + headline + deskripsi + link garis bawah "Bandingkan jenis layanan". Alasan tracking lebar: meminjam suara editorial referensi sebagai penanda section, dipakai sekali ini saja (R-06).
-- Kolom kanan: daftar 01-04, tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗. Alasan panah: tiap baris adalah link ke halaman perbandingan harga (R-08, R-26).
+- Kolom kanan: daftar 01-04, tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗ (hover: ikon dan panah jadi dark green). Alasan panah: tiap baris adalah link ke halaman perbandingan harga (R-08, R-26).
 - Background `stone-50` hangat. Alasan: jeda bertekstur antara hero biru dan konten putih, tetap netral (R-29).
 ### Card Tier per Kategori (referensi screenshot pricing)
-- Tab pil kategori di atas (satu aktif solid oranye, sisanya outline). Alasan: pola dari referensi, diterjemahkan ke oranye brand (bukan ungu, R-01).
-- 3 kartu tier: nama, harga Rp besar, checklist (ikon cek lingkaran oranye), estimasi, kotak bonus, tombol "Pesan Sekarang".
-- Tier `is_highlighted`: kartu solid oranye + teks putih + tombol putih. Alasan: satu momen penekanan, setara peran kartu ungu di referensi. Kontras putih di `#C2410C` 5.18:1, teks oranye di putih 5.18:1.
+- Tab pil kategori di atas (satu aktif solid lime + teks gelap, sisanya outline). Alasan: pola dari referensi pricing, diterjemahkan ke lime brand (bukan ungu, R-01).
+- 3 kartu tier: nama, harga Rp besar, checklist (ikon cek lingkaran mengikuti konteks kartu), estimasi, kotak bonus, tombol pil "Pesan Sekarang" (lime + teks gelap di kartu terang).
+- Tier `is_highlighted`: kartu solid lime + teks pine + tombol pine. Alasan: momen penekanan paling terang di section gelap; tombol pine di lime 13.28:1.
 - Tombol per tier ke `/kontak?paket=slug&tier=Nama`, form prefill "paket X tier Y" dan ikut ke pesan WA.
 
 ### Kartu Portofolio (referensi screenshot)
-- Kartu putih rounded: sampul + pil tipe (putih, teks oranye) + pil tahun di atas gambar, judul, kutipan deskripsi 90 karakter, pil teknologi oranye muda, tombol outline "Lihat Detail →" full-width. Alasan panah: semua tombol kartu berarti "buka halaman detail" (R-08).
+- Kartu putih rounded: sampul + pil tipe (putih, teks dark green) + pil tahun di atas gambar, judul, kutipan deskripsi 90 karakter, pil teknologi lime muda + teks gelap, tombol pil outline "Lihat Detail →" full-width. Alasan panah: semua tombol kartu berarti "buka halaman detail" (R-08).
 - Halaman detail `/portofolio/{slug}`: breadcrumb, cover besar, meta (tipe, tahun, klien), deskripsi penuh, badge teknologi, galeri grid, aside CTA konsultasi, 2 project lain. Meta title/description per project untuk SEO.
 
-### Penutup (cara kerja, garansi, FAQ)
-- Cara kerja: kolom kiri sticky + 4 langkah bernomor serif italic oranye muda. Alasan: variasi ritme dari daftar layanan bernomor, angka besar sebagai penanda urutan bukan ikon (R-05).
-- Strip garansi: satu baris solid oranye + tombol putih. Alasan: risk reversal di titik ragu, dibedakan dari banner highlight gradient (R-31).
+### Penutup (cara kerja, garansi, FAQ, kontak, blog)
+- About `/tentang`: headline condensed kiri + highlight box lime + teks kanan bawah. Alasan: asimetri editorial, teks sama.
+- Portofolio: filter pil jenis (muncul bila 3+ tipe), hanya di halaman penuh.
+- Blog: artikel pertama featured dark + sisanya list thumb. Detail: judul condensed + aside CTA.
+- Kontak: panel info dark + form dalam kartu putih.
+- Cara kerja: kolom kiri sticky + 4 langkah bernomor condensed besar dark green. Alasan: variasi ritme dari daftar layanan bernomor, angka besar sebagai penanda urutan bukan ikon (R-05).
+- Strip garansi: satu baris solid dark green + teks putih + tombol pil lime. Alasan: risk reversal di titik ragu, dibedakan dari banner highlight (R-31).
 - FAQ 5 pertanyaan asli seputar durasi, pembayaran, revisi, redesign, remote. Alasan: tiap jawaban merujuk ke halaman/fitur yang ada (R-28). Pemilik wajib koreksi bila pertanyaan aktual klien berbeda.
 ### Card Paket Layanan
 - Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
@@ -85,24 +99,26 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 
 Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anchor scroll):
 
-- `/` Home: Hero + Layanan bernomor + Tier per kategori (tab) + Cara kerja + HighlightBanner + Strip garansi + Portofolio preview (+ link /portofolio) + FAQ + Pre-footer CTA
-- `/layanan`: tab kategori (Landing, Company, Toko, Redesign) + 3 kartu tier per tab + banner Custom + akordeon rincian. `/harga` redirect 301 ke `/layanan`.
-- `/tentang`: About singkat + Kenapa pilih kami (3)
+- `/` Home: Hero gelap + Layanan bernomor + Tier per kategori (section gelap) + Cara kerja + Portofolio preview + FAQ
+- `/layanan`: tab kategori + 3 kartu tier + Kebijakan (bold) + banner Custom. `/harga` redirect 301 ke `/layanan`.
+- `/tentang`: About asimetris + Kenapa pilih kami (3)
+- `/portofolio`: filter jenis + grid kartu. `/kontak`: panel info gelap + form dalam kartu.
 - `/harga`: 4 kartu paket + akordeon rincian layanan + CTA ke `/kontak?paket=slug` (form terisi otomatis)
 - `/portofolio`: grid slot + empty state jujur
 - `/kontak`: info + form (prefill paket dari query, fallback WA ke halaman ini bila nomor belum diisi)
 
 ### Navbar
-- Pil melayang seperti referensi: bar `rounded-full` putih dengan bayangan halus, logo serif miring kiri, menu tengah, CTA pil gelap kanan. Sticky dengan jarak atas. Alasan: pil jadi motif identitas yang menggemakan kartu membulat di hero.
+- Pil melayang seperti referensi: bar `rounded-full` putih dengan bayangan halus, logo sans tebal rapat kiri, menu tengah, CTA pil lime + teks gelap kanan. Sticky dengan jarak atas. Alasan: pil jadi motif identitas yang menggemakan kartu membulat di hero.
 - Mobile: tombol "Menu" berlabel di dalam pil + panel dropdown membulat di bawahnya.
 
 ### Footer
-- Gelap (`zinc-950`) sebagai penutup halaman. Alasan: kontras penutup setelah konten putih panjang, teks zinc-400 di atasnya tetap lolos AA. Lengkap tapi ramping: 3 kolom link real + bottom bar copyright dan kebijakan ("segera hadir" bila belum ada halaman).
+- Gelap (`#0B1F17` dark green) sebagai penutup halaman, selaras hero. Alasan: kontras penutup setelah konten putih panjang, teks zinc-400 di atasnya tetap lolos AA. Lengkap tapi ramping: 3 kolom link real + bottom bar copyright dan kebijakan ("segera hadir" bila belum ada halaman).
 
 ### Yang SENGAJA dihilangkan dari referensi (aturan antislop)
 - Logo bar klien: tidak ada logo klien real, jadi tidak ditampilkan (R-18, R-38).
-- Statistik 500+/98%/$2M+/15+: tidak ada sumber, jadi tidak ditampilkan (R-17).
-- Testimoni James M dan kartu 95%: fiktif untuk projek ini, jadi section testimoni tidak ada sampai ada testimoni real (R-18).
+- Statistik 500+/98%/$2M+/15+ (Stallion) dan 4.9/80K/234M/5.0 (MoneyHub): tidak ada sumber, jadi tidak ditampilkan (R-17).
+- Testimoni James M dan kartu 95% (Stallion) serta foto + bintang MoneyHub: fiktif untuk projek ini, jadi section testimoni tidak ada sampai ada testimoni real (R-18).
+- Tombol App Store / Google Play MoneyHub: tidak relevan untuk jasa website UMKM.
 - FAQ generik: tidak dibuat (R-28).
 
 ## 7. Nada & Bahasa
@@ -123,6 +139,6 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 
 ## 9. Catatan Tambahan
 
-- Tombol CTA oranye wajib `#C2410C` + teks putih (hasil cek kontras). Oranye terang hanya dekorasi.
+- Tombol CTA wajib lime `#CDF138` + teks gelap `#0B1F17` (hasil cek kontras 13.28:1). Larangan: teks putih di atas lime (1.29:1, gagal).
 - Mockup hero dan kartu portofolio dari div hingga ada aset real. Jangan samarkan sebagai produk final.
 - Setelah nomor WA, harga, dan 2 portofolio real tersedia, ganti placeholder tanpa ubah struktur komponen.

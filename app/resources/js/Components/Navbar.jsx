@@ -18,7 +18,7 @@ export default function Navbar() {
             >
                 <a
                     href="/"
-                    className="font-serif text-xl italic text-zinc-950"
+                    className="font-display text-xl uppercase tracking-wide text-zinc-950"
                     aria-label={`${siteConfig.brandName} ke halaman utama`}
                 >
                     {siteConfig.brandName}
@@ -32,10 +32,10 @@ export default function Navbar() {
                                 <a
                                     href={item.href}
                                     aria-current={active ? 'page' : undefined}
-                                    className={`rounded-full px-4 py-2.5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 ${
+                                    className={`rounded-full px-4 py-2.5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine ${
                                         active
-                                            ? 'bg-zinc-950 text-white'
-                                            : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
+                                        ? 'bg-brand-pine text-white'
+                                        : 'text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950'
                                     }`}
                                 >
                                     {item.label}
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-1">
                     <a
                         href={waHref}
-                        className="hidden min-h-[44px] items-center rounded-full bg-zinc-950 px-5 text-sm font-semibold text-white hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950 sm:inline-flex"
+                        className="hidden min-h-[44px] items-center rounded-full bg-brand-lime px-5 text-sm font-semibold text-brand-pine hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine sm:inline-flex"
                     >
                         Konsultasi via WhatsApp
                     </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
                         aria-expanded={open}
                         aria-controls="menu-mobile"
                         onClick={() => setOpen((v) => !v)}
-                        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full px-4 text-sm font-medium text-zinc-950 hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 lg:hidden"
+                        className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full px-4 text-sm font-medium text-zinc-950 hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine lg:hidden"
                     >
                         {open ? 'Tutup' : 'Menu'}
                     </button>
@@ -84,7 +84,7 @@ export default function Navbar() {
                         <li className="pt-1 sm:hidden">
                             <a
                                 href={waHref}
-                                className="block rounded-2xl bg-zinc-950 px-4 py-3 text-center text-sm font-semibold text-white"
+                                className="block rounded-2xl bg-brand-lime px-4 py-3 text-center text-sm font-semibold text-brand-pine"
                             >
                                 Konsultasi via WhatsApp
                             </a>

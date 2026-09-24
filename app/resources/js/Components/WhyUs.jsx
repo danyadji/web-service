@@ -17,8 +17,8 @@ export default function WhyUs({ limit = whyUs.length }) {
                             key={item.title}
                             className="rounded-xl border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-md"
                         >
-                            <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-orange-100">
-                                <span className="h-2 w-2 rounded-full bg-orange-700" />
+                            <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-pinelight">
+                                <span className="h-2 w-2 rounded-full bg-brand-pine" />
                             </span>
                             <h3 className="mt-4 text-base font-semibold text-zinc-950">{item.title}</h3>
                             <p className="mt-2 text-sm leading-relaxed text-zinc-700">{item.text}</p>
@@ -29,3 +29,4 @@ export default function WhyUs({ limit = whyUs.length }) {
         </section>
     );
 }
+

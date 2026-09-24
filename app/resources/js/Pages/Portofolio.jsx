@@ -9,7 +9,7 @@ export default function Portofolio({ portfolios = [] }) {
                 title="Portofolio"
                 description="Hasil website yang sudah tayang: landing page, profil usaha, dan toko online beserta teknologinya."
             />
-            <Portfolio items={portfolios} />
+            <Portfolio items={portfolios} filterable />
         </Layout>
     );
 }

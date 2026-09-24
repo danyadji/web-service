@@ -2,7 +2,7 @@ import { siteConfig, services } from '../data/site';
 
 export default function Footer() {
     return (
-        <footer className="bg-zinc-950">
+        <footer className="bg-brand-pine">
             <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     <nav aria-label="Layanan">

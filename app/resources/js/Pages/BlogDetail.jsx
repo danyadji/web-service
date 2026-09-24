@@ -31,7 +31,7 @@ export default function BlogDetail({ post, others = [] }) {
                     />
                 )}
                 <div
-                    className="prose-zinc mt-8 space-y-4 text-base leading-relaxed text-zinc-800 [&>h2]:pt-4 [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-zinc-950 [&>p>a]:text-orange-800 [&>p>a]:underline [&>ul]:list-disc [&>ul]:pl-5"
+                    className="prose-zinc mt-8 space-y-4 text-base leading-relaxed text-zinc-800 [&>h2]:pt-4 [&>h2]:text-xl [&>h2]:font-semibold [&>h2]:text-zinc-950 [&>p>a]:text-brand-pine [&>p>a]:underline [&>ul]:list-disc [&>ul]:pl-5"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
                 <div className="mt-10 rounded-2xl bg-zinc-50 p-6 text-center">
@@ -40,7 +40,7 @@ export default function BlogDetail({ post, others = [] }) {
                     </p>
                     <a
                         href="/kontak"
-                        className="mt-3 inline-flex min-h-[44px] items-center rounded-md bg-orange-700 px-5 text-sm font-semibold text-white hover:bg-orange-800"
+                        className="mt-3 inline-flex min-h-[44px] items-center rounded-full bg-brand-lime px-5 text-sm font-semibold text-brand-pine hover:brightness-95"
                     >
                         Konsultasi gratis
                     </a>
@@ -55,7 +55,7 @@ export default function BlogDetail({ post, others = [] }) {
                                 <li key={o.slug}>
                                     <a
                                         href={`/blog/${o.slug}`}
-                                        className="text-sm font-medium text-zinc-700 hover:text-orange-800"
+                                        className="text-sm font-medium text-zinc-700 hover:text-brand-pine"
                                     >
                                         {o.title}
                                     </a>

@@ -32,7 +32,7 @@ export default function PortfolioDetail({ item, others = [] }) {
 
                 <div className="mt-4 flex flex-wrap items-center gap-2">
                     {item.service && (
-                        <span className="rounded-full bg-orange-700 px-3 py-1 text-xs font-semibold text-white">
+                        <span className="rounded-full bg-brand-pine px-3 py-1 text-xs font-semibold text-brand-lime">
                             {item.service}
                         </span>
                     )}
@@ -48,7 +48,7 @@ export default function PortfolioDetail({ item, others = [] }) {
                     )}
                 </div>
 
-                <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+                <h1 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[1.02] tracking-wide text-zinc-950 sm:text-5xl">
                     {item.title}
                 </h1>
 
@@ -73,7 +73,7 @@ export default function PortfolioDetail({ item, others = [] }) {
                                     {item.technologies.map((t) => (
                                         <li
                                             key={t}
-                                            className="rounded-full bg-orange-50 px-3 py-1 text-sm font-medium text-orange-800"
+                                            className="rounded-full bg-brand-pinelight px-3 py-1 text-sm font-medium text-brand-pine"
                                         >
                                             {t}
                                         </li>
@@ -100,7 +100,7 @@ export default function PortfolioDetail({ item, others = [] }) {
                             )}
                             <a
                                 href="/kontak"
-                                className="inline-flex min-h-[44px] items-center rounded-md bg-orange-700 px-5 text-sm font-semibold text-white hover:bg-orange-800"
+                                className="inline-flex min-h-[44px] items-center rounded-full bg-brand-lime px-5 text-sm font-semibold text-brand-pine hover:brightness-95"
                             >
                                 Konsultasi project
                             </a>

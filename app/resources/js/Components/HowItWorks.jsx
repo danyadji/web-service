@@ -32,7 +32,7 @@ export default function HowItWorks() {
                     />
                     <a
                         href="/kontak"
-                        className="mt-6 inline-flex min-h-[44px] items-center rounded-md bg-orange-700 px-5 text-sm font-semibold text-white hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800"
+                        className="mt-6 inline-flex min-h-[44px] items-center rounded-full bg-brand-lime px-5 text-sm font-semibold text-brand-pine hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine"
                     >
                         Mulai langkah pertama
                     </a>
@@ -42,7 +42,7 @@ export default function HowItWorks() {
                         <li key={s.title} className="flex gap-5 rounded-2xl p-4 hover:bg-zinc-50">
                             <span
                                 aria-hidden="true"
-                                className="font-serif text-4xl italic leading-none text-orange-200"
+                                className="font-display text-5xl leading-none text-brand-pine/10"
                             >
                                 {i + 1}
                             </span>

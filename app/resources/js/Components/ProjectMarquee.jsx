@@ -20,7 +20,7 @@ export default function ProjectMarquee() {
                     ))}
                 </div>
             </div>
-            <p className="mt-1 text-center text-xs text-zinc-500">
+            <p className="mt-1 text-center text-xs text-zinc-400">
                 Slot showcase, ganti dengan screenshot project asli. Arahkan kursor untuk
                 menghentikan geseran.
             </p>

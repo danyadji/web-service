@@ -48,10 +48,10 @@ export default function Faq() {
                                         aria-controls={`faq-panel-${i}`}
                                         id={`faq-tab-${i}`}
                                         onClick={() => setOpen(isOpen ? -1 : i)}
-                                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-zinc-950 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-orange-800 sm:px-6"
+                                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-zinc-950 hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-brand-pine sm:px-6"
                                     >
                                         {f.q}
-                                        <span aria-hidden="true" className="text-lg font-normal text-orange-700">
+                                        <span aria-hidden="true" className="text-lg font-normal text-brand-pine">
                                             {isOpen ? '−' : '+'}
                                         </span>
                                     </button>

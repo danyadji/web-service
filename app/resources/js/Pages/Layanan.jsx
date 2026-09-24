@@ -25,7 +25,7 @@ export default function Layanan({ serviceTiers = [] }) {
                     </div>
                     <a
                         href="/kontak?paket=custom"
-                        className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-md bg-zinc-950 px-5 text-sm font-semibold text-white hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+                        className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-full bg-brand-pine px-5 text-sm font-semibold text-white hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pine"
                     >
                         Diskusikan kebutuhan
                     </a>

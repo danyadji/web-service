@@ -7,6 +7,7 @@ function formatPrice(value) {
 }
 
 function CheckIcon({ light }) {
+    const color = light ? '#0B1F17' : '#0B1F17';
     return (
         <svg
             width="16"
@@ -16,16 +17,10 @@ function CheckIcon({ light }) {
             aria-hidden="true"
             className="mt-0.5 shrink-0"
         >
-            <circle
-                cx="8"
-                cy="8"
-                r="7"
-                stroke={light ? '#FFFFFF' : '#C2410C'}
-                strokeWidth="1.5"
-            />
+            <circle cx="8" cy="8" r="7" stroke={color} strokeWidth="1.5" />
             <path
                 d="M5.5 8.2 7.2 10l3.3-3.8"
-                stroke={light ? '#FFFFFF' : '#C2410C'}
+                stroke={color}
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -39,18 +34,18 @@ function TierCard({ serviceSlug, tier }) {
 
     return (
         <article
-            className={`flex flex-col rounded-2xl border p-6 sm:p-7 ${
+            className={`flex flex-col rounded-2xl p-6 sm:p-7 ${
                 light
-                    ? 'border-orange-700 bg-orange-700 text-white shadow-lg'
-                    : 'border-zinc-200 bg-white text-zinc-950'
+                    ? 'bg-brand-lime text-brand-pine shadow-xl'
+                    : 'bg-white text-zinc-950'
             }`}
         >
             <h3 className="text-lg font-semibold">{tier.name}</h3>
-            <p className={`mt-1 text-2xl font-bold tracking-tight sm:text-3xl ${light ? 'text-white' : 'text-orange-700'}`}>
+            <p className="mt-1 font-display text-3xl tracking-wide text-brand-pine sm:text-4xl">
                 {formatPrice(tier.price)}
             </p>
             {tier.duration_estimate && (
-                <p className={`mt-1 text-sm ${light ? 'text-orange-100' : 'text-zinc-600'}`}>
+                <p className={`mt-1 text-sm ${light ? 'text-brand-pine/70' : 'text-zinc-600'}`}>
                     Pengerjaan {tier.duration_estimate}
                 </p>
             )}
@@ -58,14 +53,14 @@ function TierCard({ serviceSlug, tier }) {
                 {tier.features.map((f) => (
                     <li key={f} className="flex gap-2.5 text-sm leading-relaxed">
                         <CheckIcon light={light} />
-                        <span className={light ? 'text-white' : 'text-zinc-700'}>{f}</span>
+                        <span className={light ? 'text-brand-pine' : 'text-zinc-700'}>{f}</span>
                     </li>
                 ))}
             </ul>
             {tier.bonus_text && (
                 <p
                     className={`mt-5 rounded-lg px-4 py-2.5 text-center text-xs font-semibold ${
-                        light ? 'bg-white/15 text-white' : 'bg-orange-50 text-orange-800'
+                        light ? 'bg-brand-pine text-brand-lime' : 'bg-brand-pinelight text-brand-pine'
                     }`}
                 >
                     {tier.bonus_text}
@@ -73,10 +68,10 @@ function TierCard({ serviceSlug, tier }) {
             )}
             <a
                 href={`/kontak?paket=${serviceSlug}&tier=${encodeURIComponent(tier.name)}`}
-                className={`mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                className={`mt-4 inline-flex min-h-[48px] items-center justify-center rounded-full px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     light
-                        ? 'bg-white text-orange-800 hover:bg-orange-50 focus-visible:outline-white'
-                        : 'bg-orange-700 text-white hover:bg-orange-800 focus-visible:outline-orange-800'
+                        ? 'bg-brand-pine text-white hover:bg-zinc-800 focus-visible:outline-white'
+                        : 'bg-brand-pine text-white hover:bg-zinc-800 focus-visible:outline-brand-pine'
                 }`}
             >
                 Pesan Sekarang
@@ -106,9 +101,10 @@ export default function ServiceTierTabs({ items = [] }) {
 
     if (items.length === 0) {
         return (
-            <section aria-labelledby="tier-title" className="border-t border-zinc-200">
+            <section aria-labelledby="tier-title" className="bg-brand-pine">
                 <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                     <SectionHeading
+                        tone="dark"
                         eyebrow="Layanan dan harga"
                         titleId="tier-title"
                         title="Pilih kategori, lalu tier yang pas"
@@ -120,48 +116,47 @@ export default function ServiceTierTabs({ items = [] }) {
     }
 
     return (
-        <section aria-labelledby="tier-title" className="border-t border-zinc-200">
+        <section aria-labelledby="tier-title" className="bg-brand-pine">
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-                <div className="mx-auto max-w-2xl text-center">
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                     <SectionHeading
-                        align="center"
+                        tone="dark"
                         eyebrow="Layanan dan harga"
                         titleId="tier-title"
                         title="Pilih kategori, lalu tier yang pas"
                         description="Tiap kategori punya 3 tier. Harga final dikunci setelah diskusi kebutuhan."
                     />
-                </div>
-
-                <div
-                    role="tablist"
-                    aria-label="Kategori layanan"
-                    onKeyDown={onKeyDown}
-                    className="mt-8 flex flex-wrap justify-center gap-2"
-                >
-                    {items.map((s, i) => {
-                        const selected = i === active;
-                        return (
-                            <button
-                                key={s.slug}
-                                ref={(el) => {
-                                    tabRefs.current[i] = el;
-                                }}
-                                role="tab"
-                                aria-selected={selected}
-                                aria-controls={panelId}
-                                id={`${panelId}-tab-${s.slug}`}
-                                tabIndex={selected ? 0 : -1}
-                                onClick={() => setActive(i)}
-                                className={`min-h-[44px] rounded-full border px-5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-800 ${
-                                    selected
-                                        ? 'border-orange-700 bg-orange-700 text-white'
-                                        : 'border-zinc-300 bg-white text-zinc-700 hover:border-zinc-500 hover:text-zinc-950'
-                                }`}
-                            >
-                                {s.name}
-                            </button>
-                        );
-                    })}
+                    <div
+                        role="tablist"
+                        aria-label="Kategori layanan"
+                        onKeyDown={onKeyDown}
+                        className="flex flex-wrap gap-2"
+                    >
+                        {items.map((s, i) => {
+                            const selected = i === active;
+                            return (
+                                <button
+                                    key={s.slug}
+                                    ref={(el) => {
+                                        tabRefs.current[i] = el;
+                                    }}
+                                    role="tab"
+                                    aria-selected={selected}
+                                    aria-controls={panelId}
+                                    id={`${panelId}-tab-${s.slug}`}
+                                    tabIndex={selected ? 0 : -1}
+                                    onClick={() => setActive(i)}
+                                    className={`min-h-[44px] rounded-full border px-5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-lime ${
+                                        selected
+                                            ? 'border-brand-lime bg-brand-lime text-brand-pine'
+                                            : 'border-white/30 bg-transparent text-white hover:border-white/70'
+                                    }`}
+                                >
+                                    {s.name}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 <div

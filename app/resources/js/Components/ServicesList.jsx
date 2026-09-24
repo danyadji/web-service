@@ -28,7 +28,7 @@ export default function ServicesList() {
             <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
                 <div className="lg:sticky lg:top-28 lg:self-start">
                     <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600">
-                        <span aria-hidden="true" className="inline-block h-px w-8 bg-orange-700" />
+                        <span aria-hidden="true" className="inline-block h-px w-8 bg-brand-pine" />
                         Layanan pembuatan website
                     </p>
                     <h2
@@ -44,7 +44,7 @@ export default function ServicesList() {
                     </p>
                     <a
                         href="/layanan"
-                        className="mt-6 inline-flex min-h-[44px] items-center gap-2 border-b border-zinc-950 pb-1 text-sm font-semibold text-zinc-950 hover:gap-3 hover:text-orange-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-800"
+                        className="mt-6 inline-flex min-h-[44px] items-center gap-2 border-b border-zinc-950 pb-1 text-sm font-semibold text-zinc-950 hover:gap-3 hover:text-brand-pine focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-pine"
                     >
                         Bandingkan jenis layanan
                         <span aria-hidden="true">↗</span>
@@ -63,7 +63,7 @@ export default function ServicesList() {
                             >
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-300 bg-white text-zinc-800 transition-colors group-hover:border-orange-700 group-hover:text-orange-800"
+                                    className="mt-1 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-zinc-300 bg-white text-zinc-800 transition-colors group-hover:border-brand-pine group-hover:text-brand-pine"
                                 >
                                     <svg
                                         width="22"
@@ -88,7 +88,7 @@ export default function ServicesList() {
                                 </span>
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1 shrink-0 text-lg text-zinc-950 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-orange-800"
+                                    className="mt-1 shrink-0 text-lg text-zinc-950 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-pine"
                                 >
                                     ↗
                                 </span>

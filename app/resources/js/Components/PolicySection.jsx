@@ -50,7 +50,7 @@ export default function PolicySection() {
                                 <li key={r.title} className="flex gap-3">
                                     <span
                                         aria-hidden="true"
-                                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-700"
+                                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-pine"
                                     />
                                     <div>
                                         <p className="text-sm font-semibold text-zinc-950">{r.title}</p>
@@ -69,8 +69,8 @@ export default function PolicySection() {
                             {covered.map((c) => (
                                 <li key={c} className="flex gap-2.5 text-sm leading-relaxed text-zinc-700">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-0.5 shrink-0">
-                                        <circle cx="8" cy="8" r="7" stroke="#C2410C" strokeWidth="1.5" />
-                                        <path d="M5.5 8.2 7.2 10l3.3-3.8" stroke="#C2410C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        <circle cx="8" cy="8" r="7" stroke="#0B1F17" strokeWidth="1.5" />
+                                        <path d="M5.5 8.2 7.2 10l3.3-3.8" stroke="#0B1F17" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     {c}
                                 </li>

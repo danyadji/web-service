@@ -2,9 +2,11 @@ import Layout from '../Components/Layout';
 import Hero from '../Components/Hero';
 import ServicesList from '../Components/ServicesList';
 import ServiceTierTabs from '../Components/ServiceTierTabs';
+import HowItWorks from '../Components/HowItWorks';
 import HighlightBanner from '../Components/HighlightBanner';
+import GuaranteeStrip from '../Components/GuaranteeStrip';
 import Portfolio from '../Components/Portfolio';
-import PreFooterCTA from '../Components/PreFooterCTA';
+import Faq from '../Components/Faq';
 
 function PageLink({ href, children }) {
     return (
@@ -25,10 +27,12 @@ export default function Home({ previewPortfolios = [], serviceTiers = [] }) {
             <Hero />
             <ServicesList />
             <ServiceTierTabs items={serviceTiers} />
+            <HowItWorks />
             <HighlightBanner />
+            <GuaranteeStrip />
             <Portfolio items={previewPortfolios} />
             <PageLink href="/portofolio">Lihat semua portofolio</PageLink>
-            <PreFooterCTA />
+            <Faq />
         </Layout>
     );
 }

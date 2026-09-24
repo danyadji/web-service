@@ -62,6 +62,11 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 ### Kartu Portofolio (referensi screenshot)
 - Kartu putih rounded: sampul + pil tipe (putih, teks oranye) + pil tahun di atas gambar, judul, kutipan deskripsi 90 karakter, pil teknologi oranye muda, tombol outline "Lihat Detail →" full-width. Alasan panah: semua tombol kartu berarti "buka halaman detail" (R-08).
 - Halaman detail `/portofolio/{slug}`: breadcrumb, cover besar, meta (tipe, tahun, klien), deskripsi penuh, badge teknologi, galeri grid, aside CTA konsultasi, 2 project lain. Meta title/description per project untuk SEO.
+
+### Penutup (cara kerja, garansi, FAQ)
+- Cara kerja: kolom kiri sticky + 4 langkah bernomor serif italic oranye muda. Alasan: variasi ritme dari daftar layanan bernomor, angka besar sebagai penanda urutan bukan ikon (R-05).
+- Strip garansi: satu baris solid oranye + tombol putih. Alasan: risk reversal di titik ragu, dibedakan dari banner highlight gradient (R-31).
+- FAQ 5 pertanyaan asli seputar durasi, pembayaran, revisi, redesign, remote. Alasan: tiap jawaban merujuk ke halaman/fitur yang ada (R-28). Pemilik wajib koreksi bila pertanyaan aktual klien berbeda.
 ### Card Paket Layanan
 - Border halus, radius sedang konsisten. Tiap kartu: nama, penanda level (misal "Essential · paling dipilih"), deskripsi, harga mulai, estimasi, fitur, CTA ke form kontak. Tanpa badge "Paling Populer" (belum ada data konversi). Hover: angkat 1 level + border menguat, dengan alasan elevasi.
 - Kartu ke-5 "Custom" tampil beda: banner horizontal border putus-putus + CTA gelap "Diskusikan kebutuhan". Alasan: komposisi beda menandai aksi beda (konsultasi, bukan pilih harga), bukan sekadar kartu ke-5.
@@ -74,7 +79,7 @@ Referensi visual: Stallion Landing Page (dokumentasi + screenshot user). Diadapt
 
 Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anchor scroll):
 
-- `/` Home: Hero + Layanan bernomor + Tier per kategori (tab) + HighlightBanner + Portofolio preview (+ link /portofolio) + Pre-footer CTA
+- `/` Home: Hero + Layanan bernomor + Tier per kategori (tab) + Cara kerja + HighlightBanner + Strip garansi + Portofolio preview (+ link /portofolio) + FAQ + Pre-footer CTA
 - `/layanan`: tab kategori (Landing, Company, Toko, Redesign) + 3 kartu tier per tab + banner Custom + akordeon rincian. `/harga` redirect 301 ke `/layanan`.
 - `/tentang`: About + HighlightBanner + Kenapa pilih kami
 - `/harga`: 4 kartu paket + akordeon rincian layanan + CTA ke `/kontak?paket=slug` (form terisi otomatis)

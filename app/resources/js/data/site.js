@@ -1,6 +1,6 @@
 export const siteConfig = {
     brandName: '[Nama Brand]',
-    tagline: 'Website yang bikin UMKM dilirik pembeli',
+    tagline: 'Website yang bikin bisnis dilirik pelanggan',
     email: '[email@brand.id]',
     phone: '[08xx-xxxx-xxxx]',
     whatsappNumber: '',
@@ -95,7 +95,7 @@ export const whyUs = [
         text: 'Panduan update konten dan masa tanya jawab setelah website tayang.',
     },
     {
-        title: 'Fokus ke UMKM',
+        title: 'Fokus ke pemilik bisnis',
         text: 'Bahasa dan fiturnya disesuaikan untuk pemilik usaha, bukan untuk tim teknis.',
     },
 ];

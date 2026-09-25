@@ -9,9 +9,9 @@ export default function About() {
                     </p>
                     <h2
                         id="tentang-title"
-                        className="mt-4 font-display text-4xl uppercase leading-[1.02] tracking-wide text-zinc-950 sm:text-5xl"
+                        className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-zinc-950 sm:text-5xl"
                     >
-                        Teman bangun website untuk usaha kecil
+                        Teman bangun website untuk bisnis Anda
                     </h2>
                     <p className="mt-4 max-w-md border-l-2 border-brand-lime bg-brand-pinelight/40 py-1 pl-4 text-base leading-relaxed text-zinc-800">
                         Kami merancang dan membangun website untuk warung, bengkel, butik,

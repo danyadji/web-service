@@ -8,8 +8,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                display: ['Anton', '"Plus Jakarta Sans"', 'sans-serif'],
+                sans: ['Manrope', 'system-ui', 'sans-serif'],
+                display: ['Manrope', 'system-ui', 'sans-serif'],
             },
             colors: {
                 brand: {

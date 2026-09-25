@@ -48,7 +48,7 @@ export default function PortfolioDetail({ item, others = [] }) {
                     )}
                 </div>
 
-                <h1 className="mt-4 max-w-3xl font-display text-4xl uppercase leading-[1.02] tracking-wide text-zinc-950 sm:text-5xl">
+                <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight text-zinc-950 sm:text-5xl">
                     {item.title}
                 </h1>
 

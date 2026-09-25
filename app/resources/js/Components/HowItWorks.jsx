@@ -42,12 +42,12 @@ export default function HowItWorks() {
                         <li key={s.title} className="flex gap-5 rounded-2xl p-4 hover:bg-zinc-50">
                             <span
                                 aria-hidden="true"
-                                className="font-display text-5xl leading-none text-brand-pine/10"
+                                className="font-display font-extrabold text-5xl leading-none text-brand-pine/10"
                             >
                                 {i + 1}
                             </span>
                             <div>
-                                <h3 className="text-base font-semibold text-zinc-950">{s.title}</h3>
+                                <h3 className="w-fit bg-brand-lime px-1.5 py-0.5 text-base font-semibold text-brand-pine">{s.title}</h3>
                                 <p className="mt-1 text-sm leading-relaxed text-zinc-700">{s.text}</p>
                             </div>
                         </li>

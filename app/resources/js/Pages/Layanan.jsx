@@ -10,7 +10,7 @@ export default function Layanan({ serviceTiers = [] }) {
                 title="Layanan dan Harga"
                 description="Tier Basic, Essential, dan Custom untuk landing page, company profile, dan toko online. Revisi dan garansi tertulis."
             />
-            <ServiceTierTabs items={serviceTiers} />
+            <ServiceTierTabs items={serviceTiers} flushTop />
             <PolicySection />
             <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">
                 <div className="flex flex-col gap-4 rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-6 sm:flex-row sm:items-center sm:justify-between">

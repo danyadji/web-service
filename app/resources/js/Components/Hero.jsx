@@ -12,13 +12,13 @@ export default function Hero() {
                         <circle cx="13" cy="8" r="1.2" fill="#0B1F17" />
                         <path d="M6.5 11.5c1 1.5 2.2 2 3.5 2s2.5-.5 3.5-2" stroke="#0B1F17" strokeWidth="1.4" strokeLinecap="round" />
                     </svg>
-                    Proses remote, cocok untuk UMKM di seluruh Indonesia
+                    Proses remote, cocok untuk bisnis di seluruh Indonesia
                 </p>
                 <h1
                     id="hero-title"
-                    className="mx-auto mt-4 max-w-3xl font-display text-5xl uppercase leading-[1.02] tracking-wide text-white sm:text-6xl lg:text-7xl"
+                    className="mx-auto mt-4 max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
                 >
-                    Website yang bikin UMKM naik kelas
+                    Website yang bikin bisnis dilirik pelanggan
                 </h1>
                 <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
                     Kami buatkan landing page, profil usaha, dan toko online yang rapi,

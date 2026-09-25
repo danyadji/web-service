@@ -1,7 +1,7 @@
 import SectionHeading from './SectionHeading';
 import { whyUs } from '../data/site';
 
-export default function WhyUs({ limit = whyUs.length }) {
+export default function WhyUs({ limit = whyUs.length, align }) {
     return (
         <section id="kenapa" aria-labelledby="kenapa-title" className="scroll-mt-20 border-t border-zinc-200 bg-zinc-50">
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">

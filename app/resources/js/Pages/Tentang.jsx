@@ -8,7 +8,7 @@ export default function Tentang() {
         <Layout>
             <Seo
                 title="Tentang Kami"
-                description="Kenalan dengan pembuat website UMKM ini: cara kerja transparan, harga jelas, dan garansi tertulis."
+                description="Kenalan dengan pembuat website untuk bisnis ini: cara kerja transparan, harga jelas, dan garansi tertulis."
             />
             <About />
             <WhyUs limit={3} />

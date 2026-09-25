@@ -36,7 +36,7 @@ export function PortfolioCard({ item }) {
                 </div>
             </div>
             <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-display text-xl uppercase tracking-wide text-zinc-950">
+                <h3 className="text-xl font-bold tracking-tight text-zinc-950">
                     {item.title}
                 </h3>
                 <p className="mt-1.5 flex-1 text-sm leading-relaxed text-zinc-600">
@@ -66,7 +66,7 @@ export function PortfolioCard({ item }) {
     );
 }
 
-export default function Portfolio({ items = [], filterable = false }) {
+export default function Portfolio({ items = [], filterable = false, flushTop = false }) {
     const [filter, setFilter] = useState('Semua');
     const types = ['Semua', ...new Set(items.map((i) => i.service).filter(Boolean))];
     const shown = filter === 'Semua' ? items : items.filter((i) => i.service === filter);
@@ -75,7 +75,7 @@ export default function Portfolio({ items = [], filterable = false }) {
         <section
             id="portofolio"
             aria-labelledby="portofolio-title"
-            className="scroll-mt-20 border-t border-zinc-200 bg-zinc-50"
+            className={`scroll-mt-20 border-zinc-200 bg-zinc-50 ${flushTop ? '-mt-[76px] border-t-0 pt-[76px]' : 'border-t'}`}
         >
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

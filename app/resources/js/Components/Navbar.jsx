@@ -18,7 +18,7 @@ export default function Navbar() {
             >
                 <a
                     href="/"
-                    className="font-display text-xl uppercase tracking-wide text-zinc-950"
+                    className="font-display font-extrabold text-xl uppercase tracking-wide text-zinc-950"
                     aria-label={`${siteConfig.brandName} ke halaman utama`}
                 >
                     {siteConfig.brandName}

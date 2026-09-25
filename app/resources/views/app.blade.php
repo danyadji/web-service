@@ -6,7 +6,7 @@
         <meta name="robots" content="index, follow" />
 
         <title inertia>{{ config('app.name') }}</title>
-        <meta name="description" content="Jasa pembuatan website untuk UMKM Indonesia: landing page, company profile, dan toko online. Proses 100 persen remote." />
+        <meta name="description" content="Jasa pembuatan website untuk bisnis Indonesia: landing page, company profile, dan toko online. Proses 100 persen remote." />
         @if(config('services.gsc_verification'))
             <meta name="google-site-verification" content="{{ config('services.gsc_verification') }}" />
         @endif
@@ -34,7 +34,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
 

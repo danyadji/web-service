@@ -1,9 +1,10 @@
 import { useId, useRef, useState } from 'react';
 import SectionHeading from './SectionHeading';
 
-function formatPrice(value) {
-    if (value == null) return 'Harga menyusul';
-    return `Rp ${Number(value).toLocaleString('id-ID')}`;
+function formatPrice(value, tierName) {
+    if (value != null) return `Rp ${Number(value).toLocaleString('id-ID')}`;
+    if (tierName === 'Custom') return 'Sesuai kebutuhan';
+    return 'Harga menyusul';
 }
 
 function CheckIcon({ light }) {
@@ -34,15 +35,14 @@ function TierCard({ serviceSlug, tier }) {
 
     return (
         <article
-            className={`flex flex-col rounded-2xl p-6 sm:p-7 ${
-                light
+            className={`flex flex-col rounded-2xl p-6 sm:p-7 ${light
                     ? 'bg-brand-lime text-brand-pine shadow-xl'
                     : 'bg-white text-zinc-950'
-            }`}
+                }`}
         >
             <h3 className="text-lg font-semibold">{tier.name}</h3>
-            <p className="mt-1 font-display text-3xl tracking-wide text-brand-pine sm:text-4xl">
-                {formatPrice(tier.price)}
+            <p className="mt-1 text-3xl font-bold tracking-tight text-brand-pine sm:text-4xl">
+                {formatPrice(tier.price, tier.name)}
             </p>
             {tier.duration_estimate && (
                 <p className={`mt-1 text-sm ${light ? 'text-brand-pine/70' : 'text-zinc-600'}`}>
@@ -59,20 +59,18 @@ function TierCard({ serviceSlug, tier }) {
             </ul>
             {tier.bonus_text && (
                 <p
-                    className={`mt-5 rounded-lg px-4 py-2.5 text-center text-xs font-semibold ${
-                        light ? 'bg-brand-pine text-brand-lime' : 'bg-brand-pinelight text-brand-pine'
-                    }`}
+                    className={`mt-5 rounded-lg px-4 py-2.5 text-center text-xs font-semibold ${light ? 'bg-brand-pine text-brand-lime' : 'bg-brand-pinelight text-brand-pine'
+                        }`}
                 >
                     {tier.bonus_text}
                 </p>
             )}
             <a
                 href={`/kontak?paket=${serviceSlug}&tier=${encodeURIComponent(tier.name)}`}
-                className={`mt-4 inline-flex min-h-[48px] items-center justify-center rounded-full px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                    light
+                className={`mt-4 inline-flex min-h-[48px] items-center justify-center rounded-full px-4 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${light
                         ? 'bg-brand-pine text-white hover:bg-zinc-800 focus-visible:outline-white'
                         : 'bg-brand-pine text-white hover:bg-zinc-800 focus-visible:outline-brand-pine'
-                }`}
+                    }`}
             >
                 Pesan Sekarang
             </a>
@@ -80,7 +78,7 @@ function TierCard({ serviceSlug, tier }) {
     );
 }
 
-export default function ServiceTierTabs({ items = [] }) {
+export default function ServiceTierTabs({ items = [], flushTop = false }) {
     const [active, setActive] = useState(0);
     const tabRefs = useRef([]);
     const panelId = useId();
@@ -101,7 +99,7 @@ export default function ServiceTierTabs({ items = [] }) {
 
     if (items.length === 0) {
         return (
-            <section aria-labelledby="tier-title" className="bg-brand-pine">
+            <section aria-labelledby="tier-title" className={`bg-brand-pine ${flushTop ? '-mt-[76px] pt-[76px]' : ''}`}>
                 <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                     <SectionHeading
                         tone="dark"
@@ -116,7 +114,7 @@ export default function ServiceTierTabs({ items = [] }) {
     }
 
     return (
-        <section aria-labelledby="tier-title" className="bg-brand-pine">
+        <section aria-labelledby="tier-title" className={`bg-brand-pine ${flushTop ? '-mt-[76px] pt-[76px]' : ''}`}>
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                     <SectionHeading
@@ -146,11 +144,10 @@ export default function ServiceTierTabs({ items = [] }) {
                                     id={`${panelId}-tab-${s.slug}`}
                                     tabIndex={selected ? 0 : -1}
                                     onClick={() => setActive(i)}
-                                    className={`min-h-[44px] rounded-full border px-5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-lime ${
-                                        selected
+                                    className={`min-h-[44px] rounded-full border px-5 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-lime ${selected
                                             ? 'border-brand-lime bg-brand-lime text-brand-pine'
                                             : 'border-white/30 bg-transparent text-white hover:border-white/70'
-                                    }`}
+                                        }`}
                                 >
                                     {s.name}
                                 </button>

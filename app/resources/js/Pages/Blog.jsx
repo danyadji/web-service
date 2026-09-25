@@ -19,7 +19,7 @@ function FeaturedCard({ p }) {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-lime">
                     Artikel pilihan{p.published_at ? ` · ${p.published_at}` : ''}
                 </p>
-                <h2 className="mt-2 font-display text-2xl uppercase leading-tight tracking-wide text-white sm:text-3xl">
+                <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
                     <a href={`/blog/${p.slug}`} className="hover:text-brand-lime">
                         {p.title}
                     </a>
@@ -45,7 +45,7 @@ export default function Blog({ posts = [] }) {
         <Layout>
             <Seo
                 title="Blog"
-                description="Tips memilih jasa website, perbedaan jenis website, dan panduan online untuk UMKM."
+                description="Tips memilih jasa website, perbedaan jenis website, dan panduan online untuk bisnis."
             />
             <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <SectionHeading
@@ -62,7 +62,7 @@ export default function Blog({ posts = [] }) {
                                 {rest.map((p) => (
                                     <article
                                         key={p.slug}
-                                        className="flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-4 transition-shadow hover:shadow-md"
+                                        className="flex min-w-0 items-center gap-4 overflow-hidden rounded-2xl border border-zinc-200 bg-white p-4 transition-shadow hover:shadow-md"
                                     >
                                         {p.cover_url ? (
                                             <img
@@ -78,7 +78,7 @@ export default function Blog({ posts = [] }) {
                                             {p.published_at && (
                                                 <p className="text-xs font-medium text-zinc-500">{p.published_at}</p>
                                             )}
-                                            <h2 className="truncate text-base font-semibold text-zinc-950">
+                                            <h2 className="line-clamp-2 text-base font-semibold leading-snug text-zinc-950">
                                                 <a href={`/blog/${p.slug}`} className="hover:text-brand-pine">
                                                     {p.title}
                                                 </a>

@@ -1,4 +1,4 @@
-# Analytics & SEO — Web Jasa Pembuatan Website UMKM
+# Analytics & SEO — Web Jasa Pembuatan Website
 
 Dokumen acuan untuk setup analitik dan strategi peningkatan SEO. Dibagi jadi: setup sekali di awal, dan monitoring rutin.
 
@@ -46,11 +46,11 @@ Dibangun sebagai dashboard di admin panel Filament:
 - [ ] Riset keyword awal (pakai Keyword Planner) — buat daftar 10-15 keyword target sebagai basis konten blog
 
 ## 3. Keyword Target Awal (Contoh — sesuaikan hasil riset asli)
-- "jasa pembuatan website UMKM" (kompetisi tinggi, target jangka panjang)
+- "jasa pembuatan website bisnis" (kompetisi tinggi, target jangka panjang)
 - "jasa website company profile murah" (lebih spesifik, lebih mudah bersaing)
 - "harga jasa buat toko online" (long-tail, biasanya konversi lebih tinggi)
 - "jasa landing page bisnis"
-- "jasa buat website cafe"
+- "jasa buat website perusahaan"
 - *(lengkapi setelah riset Keyword Planner/Ubersuggest)*
 
 ## 4. Strategi Konten (Ongoing)
@@ -61,7 +61,7 @@ Dibangun sebagai dashboard di admin panel Filament:
 
 ## 5. Off-page SEO
 - Daftar ke direktori bisnis lokal/nasional (gratis)
-- Kolaborasi/artikel tamu dengan komunitas UMKM
+- Kolaborasi/artikel tamu dengan komunitas bisnis
 - Aktif di media sosial dengan link balik ke web (bukan untuk ranking langsung, tapi bangun sinyal brand)
 
 ## 6. Monitoring Rutin (Checklist Bulanan)

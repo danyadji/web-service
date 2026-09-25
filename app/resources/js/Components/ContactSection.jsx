@@ -25,10 +25,14 @@ export default function ContactSection({ selectedService, selectedTier = '' }) {
                                 <dt className="text-sm font-medium text-zinc-400">Telepon / WA</dt>
                                 <dd className="mt-0.5 text-base font-semibold text-white">{siteConfig.phone}</dd>
                             </div>
+                            <div>
+                                <dt className="text-sm font-medium text-zinc-400">Lokasi</dt>
+                                <dd className="mt-0.5 text-base font-semibold text-white">Jepara, Indonesia</dd>
+                            </div>
                         </dl>
                         <p className="mt-4 border-t border-white/15 pt-4 text-sm leading-relaxed text-zinc-300">
-                            Balasan maksimal 1 hari kerja. Data form tersimpan ke admin dan
-                            diteruskan ke WhatsApp setelah endpoint server disambung.
+                            Balasan maksimal 1 hari kerja. Isi form tersimpan otomatis
+                            dan WhatsApp terbuka dengan pesan terisi, tinggal tekan kirim.
                         </p>
                     </div>
                     <div className="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7">

@@ -8,6 +8,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use App\Support\OptimizedUpload;
 use Filament\Schemas\Schema;
 
 class BlogPostForm
@@ -37,7 +38,8 @@ class BlogPostForm
                     ->image()
                     ->disk('public')
                     ->directory('blog')
-                    ->maxSize(2048),
+                    ->saveUploadedFileUsing(OptimizedUpload::saveUsing('blog'))
+                    ->maxSize(10240),
                 TextInput::make('meta_title')
                     ->maxLength(255),
                 TextInput::make('meta_description')

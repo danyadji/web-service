@@ -9,8 +9,8 @@ use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use App\Support\OptimizedUpload;
 use Filament\Schemas\Schema;
-
 class PortfolioForm
 {
     public static function configure(Schema $schema): Schema
@@ -42,7 +42,8 @@ class PortfolioForm
                     ->image()
                     ->disk('public')
                     ->directory('portfolios')
-                    ->maxSize(2048)
+                    ->saveUploadedFileUsing(OptimizedUpload::saveUsing('portfolios'))
+                    ->maxSize(10240)
                     ->required(),
                 FileUpload::make('gallery_images')
                     ->label('Galeri tambahan')
@@ -50,7 +51,8 @@ class PortfolioForm
                     ->multiple()
                     ->disk('public')
                     ->directory('portfolios/gallery')
-                    ->maxSize(2048)
+                    ->saveUploadedFileUsing(OptimizedUpload::saveUsing('portfolios/gallery'))
+                    ->maxSize(10240)
                     ->columnSpanFull(),
                 TextInput::make('alt_text')
                     ->label('Alt text gambar')

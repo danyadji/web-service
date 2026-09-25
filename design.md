@@ -1,14 +1,14 @@
-# Design Spec — Web Jasa Pembuatan Website UMKM
+# Design Spec — Web Jasa Pembuatan Website
 
-Referensi visual: Stallion Landing Page + MoneyHub Landing Page (screenshot user, redesign). Diadaptasi ke konteks jasa website UMKM Indonesia. Bukan clone: komposisi warna, tipografi, dan bahasa komponen dipinjam; struktur section dan konten tetap milik web ini.
+Referensi visual: Stallion Landing Page + MoneyHub Landing Page (screenshot user, redesign). Diadaptasi ke konteks jasa website untuk bisnis Indonesia. Bukan clone: komposisi warna, tipografi, dan bahasa komponen dipinjam; struktur section dan konten tetap milik web ini.
 
 ---
 
 ## 1. Mood & Gaya Visual
 
-- Bold & percaya diri + Hangat: hero dan footer gelap premium, body putih lapang, aksen lime playful di momen aksi. Kesan "agensi berani" seperti MoneyHub, bahasanya tetap ramah UMKM.
+- Bold & percaya diri + Hangat: hero dan footer gelap premium, body putih lapang, aksen lime playful di momen aksi. Kesan "agensi berani" seperti MoneyHub, bahasanya tetap ramah pemilik bisnis.
 - Tidak ada section/kartu baru: struktur halaman yang sudah dibangun tidak berubah, yang diganti hanya warna, font, dan styling komponen.
-- Dial: ENERGY 3 / RHYTHM 3 / MOTION 2. Design Read: landing jasa website untuk pemilik UMKM Indonesia, bahasa visual fintech-bold yang percaya diri, dial ENERGY 3 / RHYTHM 3 / MOTION 2.
+- Dial: ENERGY 3 / RHYTHM 3 / MOTION 2. Design Read: landing jasa website untuk pemilik bisnis Indonesia, bahasa visual fintech-bold yang percaya diri, dial ENERGY 3 / RHYTHM 3 / MOTION 2.
 
 ## 2. Palet Warna
 
@@ -30,9 +30,11 @@ Referensi visual: Stallion Landing Page + MoneyHub Landing Page (screenshot user
 
 ## 3. Tipografi
 
-- Heading: `Anton` (uppercase, tight, satu weight). Alasan: meniru headline condensed tebal MoneyHub ("BEST SOLUTION...") sebagai suara berani; menggantikan Plus Jakarta Sans di heading.
+- Heading: `Manrope` 700, sentence-case, tracking tight (contoh referensi: "Jasa pembuatan website untuk..."). Alasan: mengikuti gaya headline referensi pemilik; uppercase condensed ditinggalkan.
+- Eyebrow/label kecil tetap uppercase spasi lebar sebagai penanda section.
+- Body: `Manrope` 400-700.
 - Aksen artistik lama (`Playfair Display` italic) PENSIUN. Motif identitas baru: uppercase condensed + aksen lime. Alasan: serif italic bertabrakan dengan suara bold referensi baru (R-20, satu identitas).
-- Body: `Plus Jakarta Sans` 400-500 (tetap, terbaca untuk paragraf panjang).
+- Body: `Manrope` 400-800 (menggantikan Plus Jakarta Sans atas permintaan pemilik).
 - Logo wordmark: sans tebal rapat (tanpa serif miring), mengikuti logo MoneyHub.
 - Semua dari Google Fonts.
 
@@ -59,9 +61,11 @@ Referensi visual: Stallion Landing Page + MoneyHub Landing Page (screenshot user
 ### Ilustrasi / Gambar
 - Tidak pakai ilustrasi stok generik. Visual = mockup UI abstrak + foto kontak jujur menyusul. Alasan: R-22.
 
-### Layanan bernomor (referensi averra.id)
-- Kolom kiri sticky: eyebrow uppercase spasi lebar + headline + deskripsi + link garis bawah "Bandingkan jenis layanan". Alasan tracking lebar: meminjam suara editorial referensi sebagai penanda section, dipakai sekali ini saja (R-06).
-- Kolom kanan: daftar 01-04, tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗ (hover: ikon dan panah jadi dark green). Alasan panah: tiap baris adalah link ke halaman perbandingan harga (R-08, R-26).
+### Layanan bernomor (referensi averra.id + foto editorial)
+- Header: judul condensed kiri + link garis bawah "Siap mulai? Hubungi kami" ke `/kontak` kanan (seperti "Ready to get started? Contact us" referensi).
+- Tiap baris: thumbnail mockup abstrak + nomor + judul condensed + blurb, pemisah garis, link ke `/layanan`. Thumbnail dari div (bukan foto asli) sampai ada aset foto (R-38).
+- Background putih; eyebrow tracking lebar dipakai sekali ini saja (R-06).
+- Tiap baris ikon garis relevan dalam kotak border + judul + blurb + panah ↗ (hover: ikon dan panah jadi dark green). Berlaku untuk pola daftar bernomor umum (R-08, R-26).
 - Background `stone-50` hangat. Alasan: jeda bertekstur antara hero biru dan konten putih, tetap netral (R-29).
 ### Card Tier per Kategori (referensi screenshot pricing)
 - Tab pil kategori di atas (satu aktif solid lime + teks gelap, sisanya outline). Alasan: pola dari referensi pricing, diterjemahkan ke lime brand (bukan ungu, R-01).
@@ -118,7 +122,7 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 - Logo bar klien: tidak ada logo klien real, jadi tidak ditampilkan (R-18, R-38).
 - Statistik 500+/98%/$2M+/15+ (Stallion) dan 4.9/80K/234M/5.0 (MoneyHub): tidak ada sumber, jadi tidak ditampilkan (R-17).
 - Testimoni James M dan kartu 95% (Stallion) serta foto + bintang MoneyHub: fiktif untuk projek ini, jadi section testimoni tidak ada sampai ada testimoni real (R-18).
-- Tombol App Store / Google Play MoneyHub: tidak relevan untuk jasa website UMKM.
+- Tombol App Store / Google Play MoneyHub: tidak relevan untuk jasa website.
 - FAQ generik: tidak dibuat (R-28).
 
 ## 7. Nada & Bahasa
@@ -141,4 +145,5 @@ Struktur multi-halaman (tiap item navbar adalah route Inertia sendiri, bukan anc
 
 - Tombol CTA wajib lime `#CDF138` + teks gelap `#0B1F17` (hasil cek kontras 13.28:1). Larangan: teks putih di atas lime (1.29:1, gagal).
 - Mockup hero dan kartu portofolio dari div hingga ada aset real. Jangan samarkan sebagai produk final.
+- Upload admin otomatis jadi WebP max 1600px kualitas 80 (`App\Support\OptimizedUpload`). Batas upload 10MB, hasil puluhan KB.
 - Setelah nomor WA, harga, dan 2 portofolio real tersedia, ganti placeholder tanpa ubah struktur komponen.
